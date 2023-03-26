@@ -1,0 +1,186 @@
+{
+  "topic": "Software Design",
+  "language": "language-plaintext",
+  "questions": [
+    {
+      "question": "What is the purpose of the 'Model-View-Controller' (MVC) design pattern?",
+      "options": [
+        "To create a user interface that is responsive to user input",
+        "To manage the flow of control in a program",
+        "To separate an application into three interconnected components: the model, the view, and the controller",
+        "To provide a consistent and uniform interface to a set of related classes"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'Dependency Injection' design pattern?",
+      "options": [
+        "To create a hierarchy of classes and subclasses to promote code reuse",
+        "To remove hard-coded dependencies between objects and replace them with interfaces",
+        "To separate the interface of a class from its implementation",
+        "To create a set of related objects that can be used interchangeably"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Observer' design pattern?",
+      "options": [
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a simple way of creating objects that behave consistently across multiple applications",
+        "To create a hierarchy of classes and subclasses to promote code reuse",
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the purpose of the 'Facade' design pattern?",
+      "options": [
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically",
+        "To provide a unified interface to a set of interfaces in a subsystem",
+        "To separate the interface of a class from its implementation",
+        "To provide a simple way of creating objects that behave consistently across multiple applications"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Singleton' design pattern?",
+      "options": [
+        "To ensure that only one instance of a class is created, and provide a global point of access to that instance",
+        "To create a hierarchy of classes and subclasses to promote code reuse",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'Builder' design pattern?",
+      "options": [
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically",
+        "To provide a unified interface to a set of interfaces in a subsystem",
+        "To separate the construction of a complex object from its representation, so that the same construction process can create different representations",
+        "To provide a simple way of creating objects that behave consistently across multiple applications"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'Adapter' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To convert the interface of a class into another interface that clients expect",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To separate the interface of a class from its implementation"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Decorator' design pattern?",
+      "options": [
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically",
+        "To attach additional responsibilities to an object dynamically, providing a flexible alternative to subclassing for extending functionality",
+        "To separate the interface of a class from its implementation",
+        "To create a set of related objects that can be used interchangeably"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Factory Method' design pattern?",
+      "options": [
+        "To remove hard-coded dependencies between objects and replace them with interfaces",
+        "To define an interface for creating objects, but let subclasses decide which classes to instantiate",
+        "To separate the interface of a class from its implementation",
+        "To provide a simple way of creating objects that behave consistently across multiple applications"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Composite' design pattern?",
+      "options": [
+        "To compose objects into tree structures to represent part-whole hierarchies",
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically",
+        "To provide a simple way of creating objects that behave consistently across multiple applications",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'Strategy' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a unified interface to a set of interfaces in a subsystem",
+        "To define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the purpose of the 'Bridge' design pattern?",
+      "options": [
+        "To decouple an abstraction from its implementation so that the two can vary independently",
+        "To create a set of related objects that can be used interchangeably",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a unified interface to a set of interfaces in a subsystem"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'Visitor' design pattern?",
+      "options": [
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically",
+        "To represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates",
+        "To provide a simple way of creating objects that behave consistently across multiple applications",
+        "To separate the interface of a class from its implementation"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'Chain of Responsibility' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it",
+        "To provide a unified interface to a set of interfaces in a subsystem"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'Flyweight' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a unified interface to a set of interfaces in a subsystem",
+        "To use sharing to support large numbers of fine-grained objects efficiently"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the purpose of the 'Proxy' design pattern?",
+      "options": [
+        "To provide a surrogate or placeholder for another object to control access to it",
+        "To create a set of related objects that can be used interchangeably",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a unified interface to a set of interfaces in a subsystem"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'Command' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To provide a unified interface to a set of interfaces in a subsystem",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'Mediator' design pattern?",
+      "options": [
+        "To create a set of related objects that can be used interchangeably",
+        "To define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently",
+        "To encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations",
+        "To provide a unified interface to a set of interfaces in a subsystem"
+      ],
+      "answer": 1
+    }
+  ]
+}

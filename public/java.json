@@ -1,248 +1,217 @@
 {
-    "topic": "Java Programming Language",
-    "language": "language-java",
-    "questions": [
-        {
-            "question": "What is the output of the following code?",
-            "code": [
-                "int x = 5;",
-                "int y = x++;",
-                "System.out.println(y);"
-            ],
-            "options": [
-                "4",
-                "5",
-                "6",
-                "Error"
-            ],
-            "answer": 1
-            },
-            {
-            "question": "What is the difference between an abstract class and an interface?",
-            "options": [
-                "An interface can have static methods while an abstract class cannot.",
-                "An interface can extend multiple interfaces while an abstract class cannot.",
-                "An abstract class cannot be inherited while an interface can.",
-                "An abstract class can have method implementations while an interface cannot."
-            ],
-            "answer": 3
-            },
-            {
-            "question": "What is the purpose of the 'final' keyword in Java?",
-            "options": [
-                "It can be used to prevent a class from being inherited.",
-                "It can be used to prevent a method from being overridden.",
-                "It can be used to prevent a variable from being reassigned.",
-                "It can be used to prevent a file from being modified."
-            ],
-            "answer": 2
-            },
-            {
-            "question": "What is the purpose of the 'synchronized' keyword in Java?",
-            "options": [
-                "It is used to indicate that a method is deprecated and should not be used.",
-                "It is used to indicate that a variable should be initialized to null.",
-                "It is used to indicate that a method should be marked as private.",
-                "It is used to ensure that a method can only be called by one thread at a time."
-            ],
-            "answer": 3
-            },
-            {
-            "question": "What is the output of the following code?",
-            "code": [
-                "List<Integer> numbers = Arrays.asList(1, 2, 3);",
-                "int sum = numbers.stream().mapToInt(Integer::intValue).sum();",
-                "System.out.println(sum);"
-            ],
-            "options": [
-                "1",
-                "2",
-                "3",
-                "6"
-            ],
-            "answer": 3
-            },
-        {
-            "question": "What is the main purpose of the 'static' keyword in Java?",
-            "options": [
-                "It makes a variable or method available to all instances of a class",
-                "It makes a variable or method specific to a particular instance of a class",
-                "It makes a variable or method available only within a particular method",
-                "It has no specific purpose in Java"
-            ],
-            "answer": 1
-        },
-        {
-            "question": "What is the difference between a class and an object in Java?",
-            "options": [
-                "An object is a blueprint for creating classes, while a class is an instance of an object",
-                "A class is a blueprint for creating objects, while an object is an instance of a class",
-                "A class is used for storing data, while an object is used for performing operations",
-                "A class is a built-in data type, while an object is a custom data type"
-            ],
-            "answer": 1
-        },
-        {
-            "question": "What is the purpose of the 'static' keyword in Java?",
-            "options": [
-                "It makes a variable or method specific to a particular instance of a class",
-                "It makes a variable or method available only within a particular method",
-                "It has no specific purpose in Java",
-                "It makes a variable or method available to all instances of a class"
-            ],
-            "answer": 3
-        },
-        {
-            "question": "What is a 'constructor' in Java?",
-            "options": [
-                "A method that returns a value",
-                "A method that is used to create objects",
-                "A method that is used to modify objects",
-                "A method that is used to delete objects"
-            ],
-            "answer": 1
-        },
-        {
-            "question": "What is the difference between '==' and '.equals()' in Java?",
-            "options": [
-                "There is no difference - they are two ways of checking if two objects are equal",
-                "'==' checks if two objects are the same object in memory, while '.equals()' checks if they have the same values",
-                "'.equals()' checks if two objects are the same object in memory, while '==' checks if they have the same values",
-                "'==' is used to compare primitive data types, while '.equals()' is used to compare objects"
-            ],
-            "answer": 1
-        },
-        {
-            "question": "What is the 'public' access modifier in Java?",
-            "options": [
-                "It allows access only from within the same class",
-                "It allows access only from within the same package",
-                "It allows access to a class, method, or variable from any other class",
-                "It has no specific purpose in Java"
-            ],
-            "answer": 2
-        },
-        {
-            "question": "What is a 'package' in Java?",
-            "options": [
-                "A folder on the filesystem that contains Java source code files",
-                "A directory on the filesystem that contains compiled Java class files",
-                "A collection of classes and interfaces that are related to each other",
-                "A reserved keyword in Java that has no specific purpose"
-            ],
-            "answer": 2
-        },
-        {
-            "question": "What is a 'for-each' loop in Java?",
-            "options": [
-                "A loop that is used to iterate over the elements of an array or a collection",
-                "A loop that is used to iterate over the characters of a string",
-                "A loop that is used to iterate over the lines of a text file",
-                "A loop that is used to iterate over the properties of a Java object"
-            ],
-            "answer": 0
-        },
-        {
-            "question": "What is the output of the following code?",
-            "code": [
-                "System.out.println(\"5\" + 3);"
-            ],
-            "options": [
-              "8",
-              "Error",
-              "53",
-              "35"
-            ],
-            "answer": 2
-          },
-          {
-            "question": "What is the purpose of the 'volatile' keyword in Java?",
-            "options": [
-              "It is used to indicate that a variable cannot be reassigned after it is initialized.",
-              "It is used to indicate that a variable should be marked as final.",
-              "It is used to indicate that a variable should be marked as static.",
-              "It is used to indicate that a variable may be modified asynchronously by multiple threads."
-            ],
-            "answer": 3
-          },
-          {
-            "question": "What is a 'lambda expression' in Java?",
-            "options": [
-              "It is a type of anonymous inner class.",
-              "It is a short block of code that can be passed around and executed.",
-              "It is a type of variable that cannot be reassigned.",
-              "It is a type of loop construct."
-            ],
-            "answer": 1
-          },
-          {
-            "question": "What is the purpose of the 'super' keyword in Java?",
-            "options": [
-              "It is used to call a method or constructor in the superclass.",
-              "It is used to call a method or constructor in the subclass.",
-              "It is used to call a method or constructor in a different class.",
-              "It is used to indicate that a class is final and cannot be inherited."
-            ],
-            "answer": 0
-          },
-          {
-            "question": "What is the output of the following code?",
-            "code": [
-              "int[] nums = new int[] {1, 2, 3};",
-              "System.out.println(nums.length);"
-            ],
-            "options": [
-              "1",
-              "2",
-              "3",
-              "Error"
-            ],
-            "answer": 2
-          },
-          {
-            "question": "What is the purpose of the 'transient' keyword in Java?",
-            "options": [
-              "It is used to indicate that a variable should not be serialized.",
-              "It is used to indicate that a variable is an instance of a subclass.",
-              "It is used to indicate that a variable cannot be modified after it is initialized.",
-              "It is used to indicate that a variable is a reference to an object."
-            ],
-            "answer": 0
-          },
-          {
-            "question": "What is the output of the following code?",
-            "code": [
-              "String str = \"Hello\";",
-              "str.concat(\" World\");",
-              "System.out.println(str);"
-            ],
-            "options": [
-              "Hello World",
-              "World",
-              "Hello",
-              "Error"
-            ],
-            "answer": 2
-          },
-          {
-            "question": "What is a 'generic type' in Java?",
-            "options": [
-              "It is a way to parameterize classes and methods with a type.",
-              "It is a type of anonymous inner class.",
-              "It is a way to declare variables that can be assigned multiple types.",
-              "It is a way to declare variables that can be modified asynchronously by multiple threads."
-            ],
-            "answer": 0
-          },
-          {
-            "question": "What is the purpose of the 'throw' keyword in Java?",
-            "options": [
-              "It is used to catch an exception.",
-              "It is used to indicate that a method may throw an exception.",
-              "It is used to indicate that a method should be marked as final.",
-              "It is used to explicitly throw an exception."
-            ],
-            "answer": 3
-        }            
-    ]
+  "topic": "Java Programming Language",
+  "language": "language-java",
+  "questions": [
+    {
+      "question": "What is the output of the following code?",
+      "code": ["int x = 5;", "int y = x++;", "System.out.println(y);"],
+      "options": ["4", "5", "6", "Error"],
+      "answer": 1
+    },
+    {
+      "question": "What is the difference between an abstract class and an interface?",
+      "options": [
+        "An interface can have static methods while an abstract class cannot.",
+        "An interface can extend multiple interfaces while an abstract class cannot.",
+        "An abstract class cannot be inherited while an interface can.",
+        "An abstract class can have method implementations while an interface cannot."
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the purpose of the 'final' keyword in Java?",
+      "options": [
+        "It can be used to prevent a class from being inherited.",
+        "It can be used to prevent a method from being overridden.",
+        "It can be used to prevent a variable from being reassigned.",
+        "It can be used to prevent a file from being modified."
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'synchronized' keyword in Java?",
+      "options": [
+        "It is used to indicate that a method is deprecated and should not be used.",
+        "It is used to indicate that a variable should be initialized to null.",
+        "It is used to indicate that a method should be marked as private.",
+        "It is used to ensure that a method can only be called by one thread at a time."
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the output of the following code?",
+      "code": [
+        "List<Integer> numbers = Arrays.asList(1, 2, 3);",
+        "int sum = numbers.stream().mapToInt(Integer::intValue).sum();",
+        "System.out.println(sum);"
+      ],
+      "options": ["1", "2", "3", "6"],
+      "answer": 3
+    },
+    {
+      "question": "What is the main purpose of the 'static' keyword in Java?",
+      "options": [
+        "It makes a variable or method available to all instances of a class",
+        "It makes a variable or method specific to a particular instance of a class",
+        "It makes a variable or method available only within a particular method",
+        "It has no specific purpose in Java"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the difference between a class and an object in Java?",
+      "options": [
+        "An object is a blueprint for creating classes, while a class is an instance of an object",
+        "A class is a blueprint for creating objects, while an object is an instance of a class",
+        "A class is used for storing data, while an object is used for performing operations",
+        "A class is a built-in data type, while an object is a custom data type"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'static' keyword in Java?",
+      "options": [
+        "It makes a variable or method specific to a particular instance of a class",
+        "It makes a variable or method available only within a particular method",
+        "It has no specific purpose in Java",
+        "It makes a variable or method available to all instances of a class"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is a 'constructor' in Java?",
+      "options": [
+        "A method that returns a value",
+        "A method that is used to create objects",
+        "A method that is used to modify objects",
+        "A method that is used to delete objects"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the difference between '==' and '.equals()' in Java?",
+      "options": [
+        "There is no difference - they are two ways of checking if two objects are equal",
+        "'==' checks if two objects are the same object in memory, while '.equals()' checks if they have the same values",
+        "'.equals()' checks if two objects are the same object in memory, while '==' checks if they have the same values",
+        "'==' is used to compare primitive data types, while '.equals()' is used to compare objects"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the 'public' access modifier in Java?",
+      "options": [
+        "It allows access only from within the same class",
+        "It allows access only from within the same package",
+        "It allows access to a class, method, or variable from any other class",
+        "It has no specific purpose in Java"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is a 'package' in Java?",
+      "options": [
+        "A folder on the filesystem that contains Java source code files",
+        "A directory on the filesystem that contains compiled Java class files",
+        "A collection of classes and interfaces that are related to each other",
+        "A reserved keyword in Java that has no specific purpose"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is a 'for-each' loop in Java?",
+      "options": [
+        "A loop that is used to iterate over the elements of an array or a collection",
+        "A loop that is used to iterate over the characters of a string",
+        "A loop that is used to iterate over the lines of a text file",
+        "A loop that is used to iterate over the properties of a Java object"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the output of the following code?",
+      "code": ["System.out.println(\"5\" + 3);"],
+      "options": ["8", "Error", "53", "35"],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'volatile' keyword in Java?",
+      "options": [
+        "It is used to indicate that a variable cannot be reassigned after it is initialized.",
+        "It is used to indicate that a variable should be marked as final.",
+        "It is used to indicate that a variable should be marked as static.",
+        "It is used to indicate that a variable may be modified asynchronously by multiple threads."
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is a 'lambda expression' in Java?",
+      "options": [
+        "It is a type of anonymous inner class.",
+        "It is a short block of code that can be passed around and executed.",
+        "It is a type of variable that cannot be reassigned.",
+        "It is a type of loop construct."
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'super' keyword in Java?",
+      "options": [
+        "It is used to call a method or constructor in the superclass.",
+        "It is used to call a method or constructor in the subclass.",
+        "It is used to call a method or constructor in a different class.",
+        "It is used to indicate that a class is final and cannot be inherited."
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the output of the following code?",
+      "code": [
+        "int[] nums = new int[] {1, 2, 3};",
+        "System.out.println(nums.length);"
+      ],
+      "options": ["1", "2", "3", "Error"],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'transient' keyword in Java?",
+      "options": [
+        "It is used to indicate that a variable should not be serialized.",
+        "It is used to indicate that a variable is an instance of a subclass.",
+        "It is used to indicate that a variable cannot be modified after it is initialized.",
+        "It is used to indicate that a variable is a reference to an object."
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the output of the following code?",
+      "code": [
+        "String str = \"Hello\";",
+        "str.concat(\" World\");",
+        "System.out.println(str);"
+      ],
+      "options": ["Hello World", "World", "Hello", "Error"],
+      "answer": 2
+    },
+    {
+      "question": "What is a 'generic type' in Java?",
+      "options": [
+        "It is a way to parameterize classes and methods with a type.",
+        "It is a type of anonymous inner class.",
+        "It is a way to declare variables that can be assigned multiple types.",
+        "It is a way to declare variables that can be modified asynchronously by multiple threads."
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'throw' keyword in Java?",
+      "options": [
+        "It is used to catch an exception.",
+        "It is used to indicate that a method may throw an exception.",
+        "It is used to indicate that a method should be marked as final.",
+        "It is used to explicitly throw an exception."
+      ],
+      "answer": 3
+    }
+  ]
 }
