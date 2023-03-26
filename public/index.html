@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+		<h1 id="topic">Quiz</h1>
+		<br>
+
+		<div class="card">
+
+			<div class="card-header" id="question">
+			</div>
+
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item list-group-item-action"><span id="option1"></li>
+							<li class="list-group-item list-group-item-action"><span id="option2"></li>
+							<li class="list-group-item list-group-item-action"><span id="option3"></li>
+							<li class="list-group-item list-group-item-action"><span id="option4"></li>
+						</ul>
+
+						<!-- <ul class="list-group list-group-flush">
+							<li class="list-group-item">
+								<label>
+									<input type="radio" name="answer" value="1">
+									<span id="option1"></span>
+								</label>
+							</li>
+
+							<li class="list-group-item">
+								<label>
+									<input type="radio" name="answer" value="2">
+									<span id="option2"></span>
+								</label>
+							</li>
+
+							<li class="list-group-item">
+								<label>
+									<input type="radio" name="answer" value="3">
+									<span id="option3"></span>
+								</label>
+							</li>
+
+							<li class="list-group-item">
+								<label>
+									<input type="radio" name="answer" value="4">
+									<span id="option4"></span>
+								</label>
+							</li>
+  					    </ul> -->
+					</div>
+
+					<div class="card-footer">
+						<div class="btn-group" role="group">
+							<!-- <button type="button" class="btn btn-outline-primary" onclick="checkAnswer()">Submit</button> -->
+							<button type="button" id="next-button" class="btn btn-outline-primary">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+	<p id="result"></p>
+
+    <script src="flash_cards.js"></script>
+
+	<script type="module">
+		window.addEventListener("load", function() {
+		  console.log("window loaded");
+		  document.getElementById("option1").addEventListener("click", check1);
+		  document.getElementById("option2").addEventListener("click", check2);
+		  document.getElementById("option3").addEventListener("click", check3);
+		  document.getElementById("option4").addEventListener("click", check4);
+
+		  document.getElementById("next-button").addEventListener("click", nextQuestion);
+
+		  function check1() {
+		  	console.log("check1");
+			checkAnswer(0);
+		  }
+		  function check2() {
+		  	console.log("check2");
+            checkAnswer(1);
+		  }
+		  function check3() {
+		  	console.log("check3");
+  		    checkAnswer(2);
+		  }
+		  function check4() {
+		  	console.log("check4");
+			checkAnswer(3);
+		  }
+		});
+	</script>  
+  </body>
+</html>

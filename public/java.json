@@ -1,0 +1,85 @@
+{
+    "topic": "Java Programming Language",
+    "questions": [
+        {
+            "question": "What is the main purpose of the 'static' keyword in Java?",
+            "options": [
+                "It makes a variable or method available to all instances of a class",
+                "It makes a variable or method specific to a particular instance of a class",
+                "It makes a variable or method available only within a particular method",
+                "It has no specific purpose in Java"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the difference between a class and an object in Java?",
+            "options": [
+                "A class is a blueprint for creating objects, while an object is an instance of a class",
+                "An object is a blueprint for creating classes, while a class is an instance of an object",
+                "A class is used for storing data, while an object is used for performing operations",
+                "A class is a built-in data type, while an object is a custom data type"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is the purpose of the 'static' keyword in Java?",
+            "options": [
+                "It makes a variable or method available to all instances of a class",
+                "It makes a variable or method specific to a particular instance of a class",
+                "It makes a variable or method available only within a particular method",
+                "It has no specific purpose in Java"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is a 'constructor' in Java?",
+            "options": [
+                "A method that returns a value",
+                "A method that is used to create objects",
+                "A method that is used to modify objects",
+                "A method that is used to delete objects"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the difference between '==' and '.equals()' in Java?",
+            "options": [
+                "There is no difference - they are two ways of checking if two objects are equal",
+                "'==' checks if two objects are the same object in memory, while '.equals()' checks if they have the same values",
+                "'.equals()' checks if two objects are the same object in memory, while '==' checks if they have the same values",
+                "'==' is used to compare primitive data types, while '.equals()' is used to compare objects"
+            ],
+            "answer": 1
+        },
+        {
+            "question": "What is the 'public' access modifier in Java?",
+            "options": [
+                "It allows access to a class, method, or variable from any other class",
+                "It allows access only from within the same class",
+                "It allows access only from within the same package",
+                "It has no specific purpose in Java"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is a 'package' in Java?",
+            "options": [
+                "A collection of classes and interfaces that are related to each other",
+                "A folder on the filesystem that contains Java source code files",
+                "A directory on the filesystem that contains compiled Java class files",
+                "A reserved keyword in Java that has no specific purpose"
+            ],
+            "answer": 0
+        },
+        {
+            "question": "What is a 'for-each' loop in Java?",
+            "options": [
+                "A loop that is used to iterate over the elements of an array or a collection",
+                "A loop that is used to iterate over the characters of a string",
+                "A loop that is used to iterate over the lines of a text file",
+                "A loop that is used to iterate over the properties of a Java object"
+            ],
+            "answer": 0
+        }
+    ]
+}
