@@ -19,12 +19,12 @@ If the `question` contains a code snippet, it will be in the `code` array. The c
     "language": "language-python",
     "questions": [
     {
-      "question": "What is the difference between a tuple and a list in Python?",
+      "question": "Which statement is true about lists and tuples in Python?",
       "options": [
         "Tuples are immutable and lists are mutable",
         "Tuples are mutable and lists are immutable",
-        "Tuples are faster than lists",
-        "Tuples can contain elements of different types, while lists cannot"
+        "Tuples are slower than lists",
+        "Tuples consume more memory than lists"
       ],
       "answer": 0
     },
