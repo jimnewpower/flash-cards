@@ -1,0 +1,98 @@
+{
+    "topic": "Python Programming Language",
+    "language": "language-python",
+    "questions": [
+    {
+      "question": "What is the difference between a tuple and a list in Python?",
+      "options": [
+        "Tuples are immutable and lists are mutable",
+        "Tuples are mutable and lists are immutable",
+        "Tuples are faster than lists",
+        "Tuples can contain elements of different types, while lists cannot"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the output of the following Python code: ?",
+      "code": ["print('hello' * 3)"],
+      "options": ["hello", "hellohello", "hello hello hello", "3hello"],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'yield' keyword in Python?",
+      "options": [
+        "To stop the execution of a function and return a value to the caller",
+        "To define a generator function that returns an iterator",
+        "To create a new instance of a class",
+        "To define a class method that can be called without creating an object"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "What is the purpose of the 'lambda' keyword in Python?",
+      "options": [
+        "To define a class method that can be called without creating an object",
+        "To create a new instance of a class",
+        "To define a generator function that returns an iterator",
+        "To define an anonymous function"
+      ],
+      "answer": 3
+    },
+    {
+      "question": "What is the purpose of the 'try-except' block in Python?",
+      "options": [
+        "To stop the execution of a function and return a value to the caller",
+        "To define a generator function that returns an iterator",
+        "To handle exceptions and prevent the program from crashing",
+        "To define a class method that can be called without creating an object"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "What is the difference between 'is' and '==' in Python?",
+      "options": [
+        "'is' checks if two objects are the same object in memory, while '==' checks if they have the same values",
+        "'==' checks if two objects are the same object in memory, while 'is' checks if they have the same values",
+        "'is' is used to compare primitive data types, while '==' is used to compare objects",
+        "There is no difference - they are two ways of checking if two objects are equal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'map' function in Python?",
+      "options": [
+        "To apply a function to every element of an iterable and return a new iterable with the results",
+        "To convert an iterable into a list",
+        "To filter the elements of an iterable and return a new iterable with the results",
+        "To reverse the order of the elements in an iterable"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the output of the following Python code?",
+      "code": ["print(len([1, [2, 3], [4, [5, 6]]]))"],
+      "options": ["1", "2", "3", "6"],
+      "answer": 2
+    },
+    {
+      "question": "What is the purpose of the 'zip' function in Python?",
+      "options": [
+        "To combine two or more iterables into a single iterable",
+        "To apply a function to every element of an iterable and return a new iterable with the results",
+        "To filter the elements of an iterable and return a new iterable with the results",
+        "To reverse the order of the elements in an iterable"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "What is the purpose of the 'super' keyword in Python?",
+      "options": [
+        "To create a new instance of a class",
+        "To define a generator function that returns an iterator",
+        "To call a method of the superclass in a subclass",
+        "To define a class method that can be called without creating an object"
+      ],
+      "answer": 2
+    }
+  ]
+}

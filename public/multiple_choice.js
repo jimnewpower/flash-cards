@@ -1,4 +1,4 @@
-const file = './design.json';
+const file = './python.json';
 const unAnsweredClass = "list-group-item list-group-item-action";
 const correctAnswerClass = "list-group-item list-group-item-action list-group-item-success";
 const incorrectAnswerClass = "list-group-item list-group-item-action list-group-item-danger";
