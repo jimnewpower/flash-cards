@@ -31,7 +31,7 @@ If the `question` contains a code snippet, it will be in the `code` array. The c
     {
       "question": "What is the output of the following Python code: ?",
       "code": ["print('hello' * 3)"],
-      "options": ["hello", "hellohello", "hello hello hello", "3hello"],
+      "options": ["hello", "hellohellohello", "hello hello hello", "3hello"],
       "answer": 1
     }
   ]
