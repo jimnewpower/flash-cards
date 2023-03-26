@@ -8,6 +8,13 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 let flashCards = [];
 let usedCardIndexes = [];
+// highlight.js language for code blocks: read from the json files
+let highlightLanguage = 'language-plaintext';
+
+function startQuiz() {
+    initializeVariables();
+    fetchQuestions();
+}
 
 function fetchQuestions() {
     fetch('./java.json')
@@ -23,21 +30,39 @@ function fetchQuestions() {
             if (data.topic != null) {
                 document.getElementById("topic").innerHTML = data.topic;
             }
+            if (data.language != null) {
+                highlightLanguage = data.language;
+            }
             flashCards = data.questions;
             showRandomFlashCard();
         })
         .catch(error => {
+            showError(error);
             console.log(error);
         });
 }
 
+function initializeVariables() {
+    currentCard = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    flashCards = [];
+    usedCardIndexes = [];
+
+    document.getElementById("next-button").addEventListener("click", nextQuestion);
+}
+
 function showErrorHtml(response) {
     let status = response.status;
-    let message = 'HTTP error ' + status + ' - ' + response.statusText + '. For ' + githubApiUrl;
+    let message = 'HTTP error ' + status + ' - ' + response.statusText;
+    showError(message);
+}
+
+function showError(text) {
     let element = document.getElementById('main_content');
     // use bootstrap alert
     let html = '<div class=\"alert alert-warning\">'
-        + 'Loading questions failed: ' + message + '.'
+        + 'Loading questions failed: ' + text + '.'
         + '</div>';
     element.innerHTML = html;
 }
@@ -76,34 +101,36 @@ function showCard(card) {
     document.getElementById("question").innerHTML = `<h3>${card.question}</h3>`;
 
     let elements = ['option1', 'option2', 'option3', 'option4'];
-    let answers = ['answer1', 'answer2', 'answer3', 'answer4'];
 
     document.getElementById("code-block").innerHTML = ``;
     if (card.code != null) {
-        let codeHtml = '<code>';
+        let codeHtml = `<pre><code class="${highlightLanguage}">`;
         card.code.forEach(element => {
-            codeHtml += element + '<br>';
+            codeHtml += element + '\n';
         });
-        codeHtml += '</code>';
+        codeHtml += '</code></pre>';
         document.getElementById("code-block").innerHTML = codeHtml;
+
+        // Use highlight.js to highlight code blocks.
+        hljs.highlightAll();
     }
 
+    let choices = ['1)', '2)', '3)', '4)'];
+
     for (let i = 0; i < elements.length; i++) {
-        document.getElementById(elements[i]).innerHTML = card.options[i];
+        document.getElementById(elements[i]).innerHTML = choices[i] + ' ' + card.options[i];
         document.getElementById(elements[i]).className = unAnsweredClass;
-        document.getElementById(answers[i]).innerHTML = '';
     }
+
+    document.getElementById("card-footer").innerHTML = `Question ${usedCardIndexes.length} of ${flashCards.length}`;
 }
 
 function endQuiz() {
-    let answers = ['answer1', 'answer2', 'answer3', 'answer4'];
-    for (let i = 0; i < answers.length; i++) {
-        document.getElementById(answers[i]).innerHTML = ``;
-    }
-
     let totalQuestions = correctAnswers + incorrectAnswers;
     let percentCorrect = Math.round(correctAnswers / totalQuestions * 100);
     let percentIncorrect = Math.round(incorrectAnswers / totalQuestions * 100);
+
+    document.getElementById("code-block").innerHTML = ``;
 
     document.getElementById("option1").className = correctAnswerClass;
     document.getElementById("option2").className = incorrectAnswerClass;
@@ -115,7 +142,9 @@ function endQuiz() {
     document.getElementById("option2").innerHTML = `Incorrect: ${incorrectAnswers} of ${totalQuestions} (${percentIncorrect}%)`;
     document.getElementById("option3").innerHTML = ``;
     document.getElementById("option4").innerHTML = ``;
-    document.querySelector('button[type="button"]').disabled = true;
+
+    document.getElementById("next-button").innerHTML = `Start Over`;
+    document.getElementById("next-button").addEventListener("click", startQuiz);
 }
 
 // Define the function to check the answer
@@ -130,23 +159,28 @@ function checkAnswer(selectedAnswer) {
         }
     }
 
+    let icon = 'check';
     let feedbackText = '';
     if (selectedAnswer == flashCards[currentCard].answer) {
         correctAnswers++;
         feedbackText = 'Correct';
+        icon = 'check';
     } else {
         incorrectAnswers++;
         feedbackText = 'Incorrect';
+        icon = 'close';
     }
 
     let classes = [incorrectAnswerClass, incorrectAnswerClass, incorrectAnswerClass, incorrectAnswerClass];
     classes[flashCards[currentCard].answer] = correctAnswerClass;
-    let answers = ['answer1', 'answer2', 'answer3', 'answer4'];
 
     for (let i = 0; i < elements.length; i++) {
         document.getElementById(elements[i]).className = classes[i];
+
         if (i === selectedAnswer) {
-            document.getElementById(answers[i]).innerHTML = `Your answer (${feedbackText}):`;
+            document.getElementById(elements[i]).className += ' user-selection';
+            let html = document.getElementById(elements[i]).innerHTML;
+            document.getElementById(elements[i]).innerHTML = `<i class="material-icons">${icon}</i><b>${html}</b>`;
         }
     }
 }
