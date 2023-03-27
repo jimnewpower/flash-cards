@@ -1,27 +1,170 @@
 {
-    "topic": "Java Programming Language",
-    "language": "language-java",
-    "flashcards": [
-      {
-        "question": "What is a constructor in Java?",
-        "answer": "A special method used to initialize objects."
-      },
-      {
-        "question": "What is the difference between 'public', 'private', and 'protected' in Java?",
-        "answer": "'public' makes a class, method or variable accessible to all other classes; 'private' restricts access to only the same class; 'protected' allows access within the same package or in subclasses."
-      },
-      {
-        "question": "What is a static method in Java?",
-        "answer": "A method that belongs to the class rather than an instance of the class."
-      },
-      {
-        "question": "What is the difference between '==' and '.equals()' in Java?",
-        "answer": "'==' compares the reference or memory location of objects; '.equals()' compares the values of objects."
-      },
-      {
-        "question": "What is the purpose of 'interface' in Java?",
-        "answer": "To define a set of methods that a class must implement."
-      }
-    ]
-  }
-  
+  "topic": "Java Programming Language",
+  "language": "language-java",
+  "flashcards": [
+    {
+      "question": "What is a <span class=\"code\">HashMap</span> in Java?",
+      "answer": "An <span class=\"code\">HashMap</span> is a Java implementation of popular data structure hash table, which allows you to store key value pairs e.g. books and their prices. It also implement the <span class=\"code\">java.util.Map</span> interface which is Java's interface for a class which allows you to store key value pairs. This means you can pass <span class=\"code\">HashMap</span> to a method, which is expecting <span class=\"code\">java.util.Map</span> interface."
+    },
+    {
+      "question": "What is the requirement for objects to be stored as keys and values in <span class=\"code\">HashMap</span>?",
+      "answer": "Both key and value must implement <span class=\"code\">equals()</span> and <span class=\"code\">hashcode()</span>. The <span class=\"code\">hashcode()</span> method of key is used to find the bucket location, where entry object is stored. Similarly, <span class=\"code\">equals()</span> method of key and value is used when you retrieve an object from <span class=\"code\">HashMap</span>. See Core Java for the Impatient for more details on how <span class=\"code\">HashMap</span> internally works."
+    },
+    {
+      "question": "What is the difference between a <span class=\"code\">HashMap</span> and a <span class=\"code\">Hashtable</span> in Java?",
+      "answer": "The key difference between them is that <span class=\"code\">HashMap</span> is not thread-safe while <span class=\"code\">Hashtable</span> is thread-safe. This tread-safety is achieved using synchronization, which also makes <span class=\"code\">Hashtable</span> slower than <span class=\"code\">HashMap</span>. Another worth noting difference is that <span class=\"code\">HashMap</span> was first added in Java 1.4 while <span class=\"code\">Hashtable</span> is present from the start of JDK."
+    },
+    {
+      "question": "What is difference between a <span class=\"code\">HashMap</span> and a <span class=\"code\">ConcurrentHashMap</span> in Java?",
+      "answer": "The <span class=\"code\">ConcurrentHashMap</span> is an scalable and concurrent version of <span class=\"code\">HashMap</span>. The key difference again is same as it was in previous question, <span class=\"code\">HashMap</span> is not thread-safe but <span class=\"code\">ConcurrentHashMap</span> is thread-safe, though it is more scalable than <span class=\"code\">Hashtable</span> or synchronized <span class=\"code\">HashMap</span> because of its implementation e.g. it divides the map into several segments and it never lock whole map, instead only segments are locked when you add or remove entries from <span class=\"code\">ConcurrentHashMap</span>. You can learn more about its implementation on my post How <span class=\"code\">ConcurrentHashMap</span> works in Java."
+    },
+    {
+      "question": "How does a <span class=\"code\">HashMap</span> work in Java?",
+      "answer": "A <span class=\"code\">HashMap</span> operates on the principle of hashing. The key object is linked with value objects using hash function. They also stored together as entry. It allows you to search for an object in O(1) time if you have key object. When you store an object into <span class=\"code\">HashMap</span>, the hash function is applied on its key to find the bucket location, which is nothing but the appropriate index in underlying array."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and <span class=\"code\">HashSet</span> in Java?",
+      "answer": "<span class=\"code\">HashMap</span> is a <span class=\"code\">Map</span>, while <span class=\"code\">HashSet</span> is a Set. <span class=\"code\">HashMap</span> is used to store key value pairs, while <span class=\"code\">HashSet</span> can be used to store just one object e.g. keys."
+    },
+    {
+      "question": "Which data structure is used to implement <span class=\"code\">HashMap</span>?",
+      "answer": "<span class=\"code\">HashMap</span> is implementation of hash table data structure but it uses array internally to store elements. The array is also known as bucket in context of <span class=\"code\">HashMap</span>."
+    },
+    {
+      "question": "What is a hash collision in <span class=\"code\">HashMap</span>?",
+      "answer": "A hash collision occurs when the hash function returns the same bucket location for two different objects, which means there is already an object stored at that location. To resolve collisions, various strategies can be used such as double hashing, where another attempt is made to find a new location, or chaining, which involves storing both values in the same bucket location as a linked list. Java's <span class=\"code\">HashMap</span> uses chaining to resolve collisions."
+    },
+    {
+      "question": "What is the difference between <span class=\"code\">HashMap</span> and <span class=\"code\">TreeMap</span> in Java?",
+      "answer": "The key difference between <span class=\"code\">HashMap</span> and <span class=\"code\">TreeMap</span> is the fact that <span class=\"code\">HashMap</span> is not ordered or sorted but <span class=\"code\">TreeMap</span> is a sorted <span class=\"code\">Map</span>, where key value pairs are stored in a sorted order imposed by <span class=\"code\">Comparator</span> (natural order) or <span class=\"code\">Comparator</span> (custom order). Another notable difference is that, apart from <span class=\"code\">equals()</span> and <span class=\"code\">hashCode()</span>. the key should also be <span class=\"code\">Comparable</span> to each other."
+    },
+    {
+      "question": "How many entries you can put into a <span class=\"code\">HashMap</span>?",
+      "answer": "You can put as many as you want, until you run out of memory but once you cross the threshold of <span class=\"code\">Integer.MAX_VALUE</span> you will start facing problems because the size method also return an int, which means if you store more than <span class=\"code\">Integer.MAX_VALUE</span>, the size method will return incorrect value."
+    },
+    {
+      "question": "How do you remove an entry from a <span class=\"code\">HashMap</span> while iterating over it?",
+      "answer": "You can remove an entry from <span class=\"code\">HashMap</span> by using the <span class=\"code\">remove()</span> method which is defined in the Iterator interface while iterating. The Set which is return by <span class=\"code\">keySet()</span> method of <span class=\"code\">HashMap</span> is a view of actual <span class=\"code\">Map</span> and any operation on this Set is also reflected on actual <span class=\"code\">Map</span>. For code example, you can see the full answer where I have showed step by step guide to remove a key, value and an entry from <span class=\"code\">HashMap</span> while iterating over it."
+    },
+    {
+      "question": "Is it possible to store <span class=\"code\">null</span> keys in a <span class=\"code\">HashMap</span>?",
+      "answer": "Yes, you can store one <span class=\"code\">null</span> key in a <span class=\"code\">HashMap</span> and multiple <span class=\"code\">null</span> values, which are stored at the 0th index. However, <span class=\"code\">Hashtable</span>, a similar class that is synchronized, does not allow <span class=\"code\">null</span> keys and storing <span class=\"code\">null</span> there will result in a <span class=\"code\">NullPointerException</span>. This is a key difference between <span class=\"code\">Hashtable</span> and <span class=\"code\"><span class=\"code\">HashMap</span></span> in Java."
+    },
+    {
+      "question": "How does a <span class=\"code\">HashMap</span> handle <span class=\"code\">null</span> keys in Java?",
+      "answer": "As mentioned in earlier answer, they are all stored in 0th index of underlying bucket which is nothing but an array. The important point here to remember that <span class=\"code\">HashMap</span> allows <span class=\"code\">null</span> key in Java."
+    },
+    {
+      "question": "Is <span class=\"code\">HashMap</span> thread-safe? What will happen if you expose <span class=\"code\">HashMap</span> to multiple threads?",
+      "answer": "<span class=\"code\">HashMap</span> is not thread-safe as its not synchronized and hence its fast . If you will expose <span class=\"code\">HashMap</span> to multiple threads in a way where all of them only read then its fine but if they perform all kind of operation like read, write, delete etc then <span class=\"code\">HashMap</span> will not be able to sustain that its internal structure will break. This means, you may not be able to retrieve values, get incorrect value or result in deadlock. That's why its not advise to use <span class=\"code\">HashMap</span> in multi-threaded environment, instead you should use <span class=\"code\">Hashtable</span> or <span class=\"code\">ConcurrentHashMap</span> in Java."
+    },
+    {
+      "question": "How do you get all keys from <span class=\"code\">HashMap</span> in Java?",
+      "answer": "You can call the <span class=\"code\">keySet()</span> method which return all keys on the <span class=\"code\">HashMap</span>"
+    },
+    {
+      "question": "How do you sort <span class=\"code\">HashMap</span> by values in Java?",
+      "answer": "As I said, you cannot sort <span class=\"code\">HashMap</span> because it is an un-ordered collection, but you can capture all its values and sort them just like any other collection using <span class=\"code\">Comparator</span> and then store all entries in the order of values into a <span class=\"code\">LinkedHashMap</span>, which keeps mapping in the order they were added. "
+    },
+    {
+      "question": "How do you initialize <span class=\"code\">HashMap</span> by values in Java?",
+      "answer": "You can use this neat trick to initialize <span class=\"code\">HashMap</span> in Java. This is known as Double brace initialization pattern, it saves time but it is not encouraged because it creates an Anonymous class everytime you use it. "
+    },
+    {
+      "question": "How do you get key from a value in Java <span class=\"code\">HashMap</span>?",
+      "answer": "This is known as reverse lookup because you are trying to get a key from value and you should bear in mind that <span class=\"code\">HashMap</span> allows duplicate values means, more than one key can map to same value e.g. this method should return a set of keys. "
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and <span class=\"code\">WeakHashMap</span> in Java?",
+      "answer": "The main difference between <span class=\"code\">HashMap</span> and <span class=\"code\">WeakHashMap</span> is the fact that keys in <span class=\"code\">WeakHashMap</span> are wrapped inside <span class=\"code\">WeakReference</span> object, which means if an object is not referred anywhere else other than the <span class=\"code\">Map</span> itself, then it is subject to garbage collection."
+    },
+    {
+      "question": "Can you store duplicate keys in <span class=\"code\">HashMap</span>? What happens if you try to put a key which already exists in <span class=\"code\">HashMap</span>?",
+      "answer": "No, you cannot store a duplicate value in the <span class=\"code\">HashMap</span>. If you try to store a key which already exists in the <span class=\"code\">Map</span> then its value is updated with the new value and <span class=\"code\">put()</span> method returns the old value. "
+    },
+    {
+      "question": "Does <span class=\"code\">HashMap</span> allows duplicate values?",
+      "answer": "Yes, <span class=\"code\">HashMap</span> allows duplicate values and that's why the <span class=\"code\">values()</span> method, which return all values, return a <span class=\"code\">Collection</span> object and not a Set. "
+    },
+    {
+      "question": "Can you sort <span class=\"code\">HashMap</span> in Java?",
+      "answer": "No, you cannot sort a <span class=\"code\">HashMap</span> directly because it is an unordered collection. However, you can sort its entries by values using <span class=\"code\">Comparator</span> and store them in a <span class=\"code\">LinkedHashMap</span> which maintains the order of insertion."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and <span class=\"code\">LinkedHashMap</span> in Java?",
+      "answer": "The main difference between <span class=\"code\">HashMap</span> and <span class=\"code\">LinkedHashMap</span> is that <span class=\"code\">HashMap</span> does not maintain any order of elements while <span class=\"code\">LinkedHashMap</span> maintains the order of elements in which they were inserted."
+    },
+    {
+      "question": "How do you check if a key exists in <span class=\"code\">HashMap</span>?",
+      "answer": "You can use the <span class=\"code\">containsKey()</span> method to check if a key exists in <span class=\"code\">HashMap</span>. This method returns <span class=\"code\">true</span> if the key is present in the <span class=\"code\">HashMap</span>, otherwise <span class=\"code\">false</span>."
+    },
+    {
+      "question": "How do you check if a value exists in <span class=\"code\">HashMap</span>?",
+      "answer": "You can use the <span class=\"code\">containsValue()</span> method to check if a value exists in <span class=\"code\">HashMap</span>. This method returns <span class=\"code\">true</span> if the value is present in the <span class=\"code\">HashMap</span>, otherwise <span class=\"code\">false</span>."
+    },
+    {
+      "question": "What are different ways to iterate over <span class=\"code\">HashMap</span> in Java?",
+      "answer": "There are several ways to iterate over a <span class=\"code\">HashMap</span> in Java. You can use a for-each loop, an Iterator, or the <span class=\"code\">forEach()</span> method introduced in Java 8."
+    },
+    {
+      "question": "Can you name some new methods added into <span class=\"code\">HashMap</span> in Java 8?",
+      "answer": "Java 8 introduced several new methods for <span class=\"code\">HashMap</span>, including <span class=\"code\">forEach()</span>, <span class=\"code\">compute()</span>, <span class=\"code\">computeIfAbsent()</span>, <span class=\"code\">computeIfPresent()</span>, <span class=\"code\">merge()</span>, and <span class=\"code\">replaceAll()</span>. These methods provide new ways to iterate over, update, and manipulate <span class=\"code\">HashMap</span>."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">size()</span> and <span class=\"code\">mappingCount()</span> method of <span class=\"code\">HashMap</span>?",
+      "answer": "The <span class=\"code\">size()</span> method returns the number of key-value mappings in the <span class=\"code\">HashMap</span> while <span class=\"code\">mappingCount()</span> method returns the same value. However, <span class=\"code\">mappingCount()</span> method is preferred in multi-threaded environment because it is a weakly-consistent iterator."
+    },
+    {
+      "question": "Does the iterator returned by <span class=\"code\">HashMap</span> is fail-safe or fail-fast?",
+      "answer": "The iterator returned by <span class=\"code\">HashMap</span> is fail-fast. This means that if the <span class=\"code\">HashMap</span> is structurally modified at any time after the iterator is created, the iterator will throw a <span class=\"code\">ConcurrentModificationException</span>."
+    },
+    {
+      "question": "How do you get all values from <span class=\"code\">HashMap</span> in Java?",
+      "answer": "You can use the <span class=\"code\">values()</span> method to get all the values from a <span class=\"code\">HashMap</span>. This method returns a <span class=\"code\">Collection</span> object containing all the values in the <span class=\"code\">HashMap</span>."
+    },
+    {
+      "question": "What is difference between keySet, values, and entrySet methods of <span class=\"code\">HashMap</span>?",
+      "answer": "The <span class=\"code\">keySet()</span> method returns a Set containing all the keys in the <span class=\"code\">HashMap</span>. The <span class=\"code\">values()</span> method returns a <span class=\"code\">Collection</span> containing all the values in the <span class=\"code\">HashMap</span>. The <span class=\"code\">entrySet()</span> method returns a Set containing all the key-value mappings in the <span class=\"code\">HashMap</span> as <span class=\"code\">Map.Entry</span> objects."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and ArrayList in Java?",
+      "answer": "<span class=\"code\">HashMap</span> is a collection of key-value pairs while ArrayList is a collection of elements. <span class=\"code\">HashMap</span> is used when you want to store data in key-value pairs, while ArrayList is used when you want to store a list of elements. <span class=\"code\">HashMap</span> allows fast access to data based on keys, while ArrayList requires iteration to access elements."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and <span class=\"code\">EnumMap</span> in Java?",
+      "answer": "The key difference between <span class=\"code\">HashMap</span> and <span class=\"code\">EnumMap</span> is that <span class=\"code\">EnumMap</span> is designed to be used with keys that are enum constants. <span class=\"code\">EnumMap</span> is more efficient than <span class=\"code\">HashMap</span> when used with enum keys because it is implemented as an array, while <span class=\"code\">HashMap</span> is implemented as a hash table. <span class=\"code\">EnumMap</span> also provides additional methods for working with enum keys."
+    },
+    {
+      "question": "What is difference between <span class=\"code\">HashMap</span> and <span class=\"code\">IdentityHashMap</span> in Java?",
+      "answer": "The main difference between <span class=\"code\">HashMap</span> and <span class=\"code\">IdentityHashMap</span> is that <span class=\"code\">HashMap</span> uses <span class=\"code\">equals()</span> method to check for equality of keys, while <span class=\"code\">IdentityHashMap</span> uses == operator to check for equality of keys. This means that in <span class=\"code\">IdentityHashMap</span>, two keys are considered equal only if they refer to the same object in memory."
+    },
+    {
+      "question": "How does <span class=\"code\">HashMap</span> handles collisions in Java?",
+      "answer": "When two keys have the same hash code, <span class=\"code\">HashMap</span> stores them in the same bucket as a linked list of entries. This is known as chaining. When retrieving an entry, <span class=\"code\">HashMap</span> first checks if the hash codes of the keys match. If they do, it uses the <span class=\"code\">equals()</span> method to determine if the keys are equal. If they are, it returns the value associated with that key. If not, it iterates through the linked list until it finds the matching key."
+    },
+    {
+      "question": "How do you convert a JSON String to <span class=\"code\">HashMap</span> in Java?",
+      "answer": "To convert a JSON String to a <span class=\"code\">HashMap</span> in Java, you can use a JSON parser library such as Jackson, Gson, or JSON.simple. These libraries provide methods to parse a JSON String into a <span class=\"code\">Map</span> object. For example, using Jackson, you can use the <span class=\"code\">readValue()</span> method to parse a JSON String into a <span class=\"code\">HashMap</span>."
+    },
+    {
+      "question": "How do you sort <span class=\"code\">HashMap</span> by keys in Java?",
+      "answer": "To sort a <span class=\"code\">HashMap</span> by keys in Java, you can first convert it to a <span class=\"code\">TreeMap</span> using its constructor that takes a <span class=\"code\">Comparator</span>. By default, <span class=\"code\">TreeMap</span> sorts elements by their natural order (i.e., keys are sorted in ascending order), but you can also provide a custom <span class=\"code\">Comparator</span> to sort them in a different order."
+    },
+    {
+      "question": "How does <span class=\"code\">get()</span> method of <span class=\"code\">HashMap</span> works in Java?",
+      "answer": "The <span class=\"code\">get()</span> method of <span class=\"code\">HashMap</span> works by first computing the hash code of the key using its <span class=\"code\">hashCode()</span> method. It then uses this hash code to locate the bucket in which the key-value pair should be stored. If the bucket is empty, or if the key is not found in the bucket's linked list, then <span class=\"code\">get()</span> returns <span class=\"code\">null</span>. Otherwise, it returns the value associated with the key."
+    },
+    {
+      "question": "How does <span class=\"code\">put()</span> method of <span class=\"code\">HashMap</span> works in Java?",
+      "answer": "The <span class=\"code\">put()</span> method of <span class=\"code\">HashMap</span> works by first computing the hash code of the key using its <span class=\"code\">hashCode()</span> method. It then uses this hash code to locate the bucket in which the key-value pair should be stored. If the bucket is empty, it adds the key-value pair to the bucket. If the bucket is not empty, it checks if the key already exists in the bucket's linked list. If it does, it replaces the old value with the new value. If it does not, it adds the key-value pair to the end of the linked list."
+    },
+    {
+      "question": "What is time complexity of <span class=\"code\">get()</span> and <span class=\"code\">put()</span> in <span class=\"code\">HashMap</span>?",
+      "answer": "The time complexity of the <span class=\"code\">get()</span> and <span class=\"code\">put()</span> methods in <span class=\"code\">HashMap</span> is O(1) on average. However, in the worst case, when all keys have the same hash code, the time complexity of these methods becomes O(n), where n is the number of entries in the <span class=\"code\">HashMap</span>. This happens because all entries will be stored in the same bucket as a linked list, and the methods will have to iterate through this linked list to find the matching key or add a new key-value pair."
+    },
+    {
+      "question": "What is the order of entries in a <span class=\"code\">HashMap</span>?",
+      "answer": "The order of entries in a <span class=\"code\">HashMap</span> is not guaranteed and may change as elements are added or removed. The ordering is based on the hash code of the keys, and can be affected by resizing and rehashing of the internal table. To maintain a specific order, you can use a <span class=\"code\">LinkedHashMap</span>, which maintains insertion order or a <span class=\"code\">TreeMap</span>, which maintains a sorted order."
+    }
+  ]
+}

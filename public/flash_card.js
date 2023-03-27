@@ -25,6 +25,7 @@ function fetchFlashCardData() {
         }
         if (data.language != null) {
             highlightLanguage = data.language;
+            console.log('highlightLanguage: ' + highlightLanguage);
         }
         flashCards = data.flashcards;
         showRandomFlashCard();
@@ -65,8 +66,17 @@ function showRandomFlashCard() {
         document.getElementById("flash-new-quiz-button").setAttribute("style", "display: content;");
         return;
     } else {
-        document.getElementById("flash-question").innerHTML = `<h4>${flashCards[cardIndex].question}</h4>`;
-        document.getElementById("flash-card-body").innerHTML = `<h4>${flashCards[cardIndex].answer}</h4>`;
+        document.getElementById("flash-question").innerHTML = `<h5>${flashCards[cardIndex].question}</h5>`;
+        document.getElementById("flash-card-body").innerHTML = `${flashCards[cardIndex].answer}`;
+
+        document.querySelectorAll('span.code').forEach(el => {
+            el.classList.add(highlightLanguage);
+            // then highlight each
+            hljs.highlightElement(el);
+          });
+
+        // Use highlight.js to highlight code blocks.
+        // hljs.highlightAll();
     }
 }
 
