@@ -39,6 +39,7 @@ function initializeFlashCardVariables() {
     usedFlashCardIndexes = [];
     currentFlashCard = 0;
 
+    hideSettingsElements();
     hideQuizTypeButtons();
     showFlashCardElements();
     hideMultipleChoiceElements();

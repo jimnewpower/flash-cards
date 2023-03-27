@@ -46,6 +46,7 @@ function initializeMultipleChoiceVariables() {
     multipleChoiceCards = [];
     usedMultipleChoiceCardIndexes = [];
 
+    hideSettingsElements();
     hideQuizTypeButtons();
     showMultipleChoiceElements();
     hideFlashCardElements();

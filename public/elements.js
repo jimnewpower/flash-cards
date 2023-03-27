@@ -3,6 +3,11 @@ const quizTypeButtons = [
     'flash-card-button'
 ];
 
+const settingsElements = [
+    'settings-container',
+    'settings-text'
+];
+
 const multipleChoiceElements = [
     'multiple-choice-container', 
     'multiple-choice-results', 
@@ -39,6 +44,14 @@ const navigationElements = [
 const styleAttribute = "style";
 const displayContentValue = "display: content";
 const displayNoneValue = "display: none";
+
+function showSettingsElements() {
+    applyAttributeToElements(settingsElements, styleAttribute, displayContentValue);
+}
+
+function hideSettingsElements() {
+    applyAttributeToElements(settingsElements, styleAttribute, displayNoneValue);
+}
 
 function showQuizTypeButtons() {
     applyAttributeToElements(quizTypeButtons, styleAttribute, displayContentValue);

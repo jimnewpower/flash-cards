@@ -2,6 +2,7 @@ function startup() {
     showQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();
+    hideSettingsElements();
 
     showNavigationElements();
     document.getElementById("home-button").disabled = true;
