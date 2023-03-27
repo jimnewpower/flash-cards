@@ -28,28 +28,39 @@ const flashCardElements = [
     'flash-card-body'
 ];
 
+const navigationElements = [
+    'home-button',
+    'settings-button'
+];
+
+const styleAttribute = "style";
+const displayContentValue = "display: content";
+const displayNoneValue = "display: none";
+
 function showMultipleChoiceElements() {
-    const attribute = "style";
-    const value = "display: content";
-    applyAttributeToElements(multipleChoiceElements, attribute, value);
+    applyAttributeToElements(multipleChoiceElements, styleAttribute, displayContentValue);
 }
 
 function hideMultipleChoiceElements() {
-    const attribute = "style";
-    const value = "display: none";
-    applyAttributeToElements(multipleChoiceElements, attribute, value);
+    applyAttributeToElements(multipleChoiceElements, styleAttribute, displayNoneValue);
 }
 
 function showFlashCardElements() {
-    const attribute = "style";
-    const value = "display: content";
-    applyAttributeToElements(flashCardElements, attribute, value);
+    applyAttributeToElements(flashCardElements, styleAttribute, displayContentValue);
 }
 
 function hideFlashCardElements() {
-    const attribute = "style";
-    const value = "display: none";
-    applyAttributeToElements(flashCardElements, attribute, value);
+    applyAttributeToElements(flashCardElements, styleAttribute, displayNoneValue);
+}
+
+function showNavigationElements() {
+    document.getElementById("home-button").disabled = false;
+    document.getElementById("settings-button").disabled = false;
+    applyAttributeToElements(navigationElements, styleAttribute, displayContentValue);
+}
+
+function hideNavigationElements() {
+    applyAttributeToElements(navigationElements, styleAttribute, displayNoneValue);
 }
 
 function applyAttributeToElements(elements, attribute, value) {

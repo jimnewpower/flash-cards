@@ -69,6 +69,7 @@ function initializeMultipleChoiceVariables() {
 
     showMultipleChoiceElements();
     hideFlashCardElements();
+    showNavigationElements();
 
     document.getElementById("multiple-choice-button").setAttribute("style", "display: none;");
     document.getElementById("flash-card-button").setAttribute("style", "display: none;");

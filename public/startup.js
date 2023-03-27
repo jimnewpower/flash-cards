@@ -1,5 +1,9 @@
 function startup() {
     hideMultipleChoiceElements();
+    hideFlashCardElements();
+
+    showNavigationElements();
+    document.getElementById("home-button").disabled = true;
 
     document.getElementById("topic").innerHTML = "Select Quiz Type";
     document.getElementById("multiple-choice-button").setAttribute("style", "display: content;");
