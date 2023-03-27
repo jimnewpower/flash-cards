@@ -1,16 +1,14 @@
-const flashCardFile = './java-flash.json';
-
 let flashCards = [];
 let usedFlashCardIndexes = [];
 let currentFlashCard = 0;
 
-function startFlashCardQuiz() {
+function startFlashCardQuiz(filename) {
     initializeFlashCardVariables();
-    fetchFlashCardData();
+    fetchFlashCardData(filename);
 }
 
-function fetchFlashCardData() {
-    fetch(flashCardFile)
+function fetchFlashCardData(filename) {
+    fetch(filename)
     .then(response => {
         if (!response.ok) {
             showErrorHtml(response);
@@ -41,12 +39,10 @@ function initializeFlashCardVariables() {
     usedFlashCardIndexes = [];
     currentFlashCard = 0;
 
+    hideQuizTypeButtons();
     showFlashCardElements();
     hideMultipleChoiceElements();
     showNavigationElements();
-
-    document.getElementById("multiple-choice-button").setAttribute("style", "display: none;");
-    document.getElementById("flash-card-button").setAttribute("style", "display: none;");
 
     document.getElementById("flash-next-button").setAttribute("style", "display: content;");
     document.getElementById("flash-new-quiz-button").setAttribute("style", "display: none;");
@@ -72,12 +68,16 @@ function showRandomFlashCard() {
 
         document.querySelectorAll('span.code').forEach(el => {
             el.classList.add(highlightLanguage);
+
+            // Avoid “One of your code blocks includes unescaped HTML” error
+            el.textContent = escape(el.textContent.trim());
+
             // then highlight each
             hljs.highlightElement(el);
           });
 
         // Use highlight.js to highlight code blocks.
-        // hljs.highlightAll();
+        hljs.highlightAll();
     }
 }
 

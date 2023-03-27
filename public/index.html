@@ -127,6 +127,7 @@
     <script src="elements.js"></script>
     <script src="error.js"></script>
     <script src="startup.js"></script>
+    <script src="select.js"></script>
     <script src="settings.js"></script>
     <script src="multiple_choice.js"></script>
     <script src="flash_card.js"></script>
@@ -143,8 +144,8 @@
 		  document.getElementById("multiple-choice-next-button").addEventListener("click", nextMultipleChoiceQuestion);
 		  document.getElementById("multiple-choice-new-quiz-button").addEventListener("click", startup);
 
-		  document.getElementById("multiple-choice-button").addEventListener("click", startMultipleChoiceQuiz);
-		  document.getElementById("flash-card-button").addEventListener("click", startFlashCardQuiz);
+		  document.getElementById("multiple-choice-button").addEventListener("click", selectMultipleChoice);
+		  document.getElementById("flash-card-button").addEventListener("click", selectFlashCards);
 
 		  document.getElementById("flash-next-button").addEventListener("click", nextFlashCard);
 		  document.getElementById("flash-new-quiz-button").addEventListener("click", startup);

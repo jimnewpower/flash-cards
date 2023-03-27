@@ -1,4 +1,3 @@
-const multipleChoiceFile = './python.json';
 const unAnsweredClass = "list-group-item list-group-item-action";
 const correctAnswerClass = "list-group-item list-group-item-action list-group-item-success";
 const incorrectAnswerClass = "list-group-item list-group-item-action list-group-item-danger";
@@ -12,30 +11,10 @@ let usedMultipleChoiceCardIndexes = [];
 // highlight.js language for code blocks: read from the json files
 let highlightLanguage = 'language-plaintext';
 
-function startMultipleChoiceQuiz() {
+function startMultipleChoiceQuiz(filename) {
     initializeMultipleChoiceVariables();
 
-    fetch('./metadata.json')
-        .then(response => {
-            if (!response.ok) {
-                showErrorHtml(response);
-                return Promise.reject(new Error(response.statusText));
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            fetchMultipleChoiceQuestions();
-        })
-        .catch(error => {
-            showError(error);
-            console.log(error);
-        });
-
-}
-
-function fetchMultipleChoiceQuestions() {
-    fetch(multipleChoiceFile)
+    fetch(filename)
         .then(response => {
             if (!response.ok) {
                 showErrorHtml(response);
@@ -67,23 +46,13 @@ function initializeMultipleChoiceVariables() {
     multipleChoiceCards = [];
     usedMultipleChoiceCardIndexes = [];
 
+    hideQuizTypeButtons();
     showMultipleChoiceElements();
     hideFlashCardElements();
     showNavigationElements();
 
-    document.getElementById("multiple-choice-button").setAttribute("style", "display: none;");
-    document.getElementById("flash-card-button").setAttribute("style", "display: none;");
-
-    document.getElementById("multiple-choice-card").setAttribute("style", "display: content;");
     document.getElementById("multiple-choice-code-block").innerHTML = ``;
-
-    document.getElementById("multiple-choice-card").setAttribute("style", "display: content;");
-    document.getElementById("multiple-choice-progress-div").setAttribute("style", "display: content;");
-    document.getElementById("multiple-choice-progress-bar").setAttribute("style", "display: content;");
-
     document.getElementById("multiple-choice-results").setAttribute("style", "display: none;");
-
-    document.getElementById("multiple-choice-next-button").setAttribute("style", "display: content;");
     document.getElementById("multiple-choice-new-quiz-button").setAttribute("style", "display: none;");
 }
 

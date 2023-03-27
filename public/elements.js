@@ -1,3 +1,8 @@
+const quizTypeButtons = [
+    'multiple-choice-button',
+    'flash-card-button'
+];
+
 const multipleChoiceElements = [
     'multiple-choice-container', 
     'multiple-choice-results', 
@@ -37,6 +42,14 @@ const styleAttribute = "style";
 const displayContentValue = "display: content";
 const displayNoneValue = "display: none";
 
+function showQuizTypeButtons() {
+    applyAttributeToElements(quizTypeButtons, styleAttribute, displayContentValue);
+}
+
+function hideQuizTypeButtons() {
+    applyAttributeToElements(quizTypeButtons, styleAttribute, displayNoneValue);
+}
+
 function showMultipleChoiceElements() {
     applyAttributeToElements(multipleChoiceElements, styleAttribute, displayContentValue);
 }
@@ -69,3 +82,14 @@ function applyAttributeToElements(elements, attribute, value) {
     }
 }
 
+// Avoid “One of your code blocks includes unescaped HTML” error
+function escape(string) {
+    let lookup = {
+        '&': "&amp;",
+        '"': "&quot;",
+        '\'': "&apos;",
+        '<': "&lt;",
+        '>': "&gt;"
+    };
+    return string.replace( /[&"'<>]/g, c => lookup[c] );
+}

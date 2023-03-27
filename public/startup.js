@@ -1,4 +1,5 @@
 function startup() {
+    showQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();
 

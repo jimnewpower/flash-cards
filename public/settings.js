@@ -1,4 +1,5 @@
 function showSettings() {
+    hideQuizTypeButtons();
     hideFlashCardElements();
     hideMultipleChoiceElements();
 
