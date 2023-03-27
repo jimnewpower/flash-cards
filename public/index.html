@@ -62,6 +62,7 @@
 </div>
 
     <script src="multiple_choice.js"></script>
+	<script src="keyboard_listener.js"></script>
 
 	<script type="module">
 		window.addEventListener("load", function() {
@@ -85,6 +86,8 @@
 		  function check4() {
 			checkAnswer(3);
 		  }
+
+		  document.onkeydown = checkKey;
 
 		  startQuiz();
 		});
