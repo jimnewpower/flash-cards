@@ -1,8 +1,6 @@
 function checkKey(e) {
     e = e || window.event;
 
-    console.log(e.keyCode);
-
     switch (e.keyCode) {
         case 49://keyboard 1
         case 97://keypad 1

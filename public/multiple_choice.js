@@ -50,7 +50,17 @@ function initializeVariables() {
     flashCards = [];
     usedCardIndexes = [];
 
-    document.getElementById("next-button").addEventListener("click", nextQuestion);
+    document.getElementById("card").setAttribute("style", "display: content;");
+    document.getElementById("code-block").innerHTML = ``;
+
+    document.getElementById("card").setAttribute("style", "display: content;");
+    document.getElementById("progress-div").setAttribute("style", "display: content;");
+    document.getElementById("progress-bar").setAttribute("style", "display: content;");
+
+    document.getElementById("results").setAttribute("style", "display: none;");
+
+    document.getElementById("next-button").setAttribute("style", "display: content;");
+    document.getElementById("new-quiz-button").setAttribute("style", "display: none;");
 }
 
 function showErrorHtml(response) {
@@ -124,6 +134,15 @@ function showCard(card) {
     }
 
     document.getElementById("card-footer").innerHTML = `Question ${usedCardIndexes.length} of ${flashCards.length}`;
+
+    let progress = document.getElementById("progress-bar");
+    let percentComplete = Math.round(usedCardIndexes.length / flashCards.length * 100);
+    console.log('percentComplete: ' + percentComplete);
+    progress.innerHTML = `${percentComplete}%`;
+    progress.style.width = `${percentComplete}%`;
+    progress.setAttribute("aria-valuenow", percentComplete);
+    progress.setAttribute("aria-min", 0);
+    progress.setAttribute("aria-max", flashCards.length);
 }
 
 function endQuiz() {
@@ -131,21 +150,23 @@ function endQuiz() {
     let percentCorrect = Math.round(correctAnswers / totalQuestions * 100);
     let percentIncorrect = Math.round(incorrectAnswers / totalQuestions * 100);
 
-    document.getElementById("code-block").innerHTML = ``;
+    document.getElementById("card").setAttribute("style", "display: none;");
+    document.getElementById("progress-div").setAttribute("style", "display: none;");
+    document.getElementById("progress-bar").setAttribute("style", "display: none;");
 
-    document.getElementById("option1").className = correctAnswerClass;
-    document.getElementById("option2").className = incorrectAnswerClass;
-    document.getElementById("option3").className = unAnsweredClass;
-    document.getElementById("option4").className = unAnsweredClass;
+    document.getElementById("results").setAttribute("style", "display: content;");
+    document.getElementById("text").innerHTML = `
+        <h3>Quiz Complete</h3>
+        You answered ${correctAnswers} out of ${totalQuestions} correctly (${percentCorrect}%).<br>
+    `;
 
-    document.getElementById("question").innerHTML = "Quiz Complete";
-    document.getElementById("option1").innerHTML = `Correct: ${correctAnswers} of ${totalQuestions} (${percentCorrect}%)`;
-    document.getElementById("option2").innerHTML = `Incorrect: ${incorrectAnswers} of ${totalQuestions} (${percentIncorrect}%)`;
-    document.getElementById("option3").innerHTML = ``;
-    document.getElementById("option4").innerHTML = ``;
+    document.getElementById("progress-success").setAttribute("style", "width: " + percentCorrect + "%;");
+    document.getElementById("progress-success").innerHTML = `${percentCorrect}%`;
+    document.getElementById("progress-fail").setAttribute("style", "width: " + percentIncorrect + "%;");
+    document.getElementById("progress-fail").innerHTML = `${percentIncorrect}%`;
 
-    document.getElementById("next-button").innerHTML = `Start Over`;
-    document.getElementById("next-button").addEventListener("click", startQuiz);
+    document.getElementById("next-button").setAttribute("style", "display: none;");
+    document.getElementById("new-quiz-button").setAttribute("style", "display: content;");
 }
 
 // Define the function to check the answer
