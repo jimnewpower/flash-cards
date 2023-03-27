@@ -1,0 +1,30 @@
+{
+  "categories": [
+    {
+      "type": "Multiple Choice",
+      "datasets": [
+        {
+          "topic": "Java Programming Language",
+          "filename": "java.json"
+        },
+        {
+          "topic": "Python Programming Language",
+          "filename": "python.json"
+        },
+        {
+          "topic": "Design Patterns",
+          "filename": "design.json"
+        }
+      ]
+    },
+    {
+      "type": "Flashcards",
+      "datasets": [
+        {
+          "topic": "Java Programming Language",
+          "filename": "java-flash.json"
+        }
+      ]
+    }
+  ]
+}

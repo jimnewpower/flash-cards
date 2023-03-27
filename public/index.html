@@ -24,83 +24,123 @@
 </head>
 <body>
 
-	<div class="container" id="main_content">
+	<div class="container" id="main-container">
+		<br>
 		<h1 id="topic">Quiz</h1>
 		<br>
 
-		<div class="container" id="results" style="display: none;">
-			<span id="text"></span>
-			<div class="progress">
-				<!-- <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div> -->
-				<div class="progress-bar bg-success" id="progress-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-				<div class="progress-bar bg-danger" id="progress-fail" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+		<div class="container" id="choose-quiz-container">
+			<div class="btn-group">
+				<button type="button" id="multiple-choice-button" class="btn btn-outline-primary btn-lg">Multiple Choice</button>
+				<button type="button" id="flash-card-button" class="btn btn-outline-primary btn-lg">Flash Cards</button>
 			</div>
 		</div>
+		
+		<div class="container" id="multiple-choice-container">
+			<div class="container" id="multiple-choice-results" style="display: none;">
+				<span id="multiple-choice-text"></span>
+				<div class="progress">
+					<div class="progress-bar bg-success" id="multiple-choice-progress-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="progress-bar bg-danger" id="multiple-choice-progress-fail" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+		
+			<div class="progress" id="multiple-choice-progress-div">
+				<div id="multiple-choice-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+			</div>
+			<br>
 	
-		<div class="progress" id="progress-div">
-			<div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-		</div>
-		<br>
-
-		<div class="d-grid gap-2">
-			<button type="button" id="next-button" class="btn btn-primary">Next</button>
-			<button type="button" id="new-quiz-button" class="btn btn-primary">Start New Quiz</button>
-		</div>
-		<br>
-
-		<div class="card" id="card">
-			<div class="card-header" id="question">
+			<div class="d-grid gap-2">
+				<button type="button" id="multiple-choice-next-button" class="btn btn-primary">Next</button>
+				<button type="button" id="multiple-choice-new-quiz-button" class="btn btn-primary">Start New Quiz</button>
 			</div>
-
-			<div class="card-body">
-				<form>
-					<div class="form-group">
-						<p id="code-block"></p>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item list-group-item-action"><span id="option1"></li>
-							<li class="list-group-item list-group-item-action"><span id="option2"></li>
-							<li class="list-group-item list-group-item-action"><span id="option3"></li>
-							<li class="list-group-item list-group-item-action"><span id="option4"></li>
-						</ul>
-					</div>
-
-				</form>
+			<br>
+	
+			<div class="card" id="multiple-choice-card">
+				<div class="card-header" id="multiple-choice-question">
+				</div>
+	
+				<div class="card-body">
+					<form>
+						<div class="form-group">
+							<p id="multiple-choice-code-block"></p>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item list-group-item-action"><span id="multiple-choice-option1"></li>
+								<li class="list-group-item list-group-item-action"><span id="multiple-choice-option2"></li>
+								<li class="list-group-item list-group-item-action"><span id="multiple-choice-option3"></li>
+								<li class="list-group-item list-group-item-action"><span id="multiple-choice-option4"></li>
+							</ul>
+						</div>
+	
+					</form>
+				</div>
+				<div class="card-footer text-muted" id="multiple-choice-card-footer">
+				</div>
 			</div>
-			<div class="card-footer text-muted" id="card-footer">
+		</div>
+
+		<div class="container" id="flash-card-container">
+			<div class="progress" id="flash-progress-div">
+				<div id="flash-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+			</div>
+			<br>
+	
+			<div class="d-grid gap-2">
+				<button type="button" id="flash-next-button" class="btn btn-primary">Next</button>
+				<button type="button" id="flash-new-quiz-button" class="btn btn-primary">Start New Quiz</button>
+			</div>
+			<br>
+
+			<div class="card" id="flash-card">
+				<div class="card-header" id="flash-question">
+				</div>
+
+				<div class="card-body" id="flash-card-body">
+				</div>
 			</div>
 		</div>
 	</div>
 
+    <script src="elements.js"></script>
+    <script src="error.js"></script>
+    <script src="startup.js"></script>
     <script src="multiple_choice.js"></script>
+    <script src="flash_card.js"></script>
 	<script src="keyboard_listener.js"></script>
 
 	<script type="module">
 		window.addEventListener("load", function() {
 		  console.log("window loaded");
-		  document.getElementById("option1").addEventListener("click", check1);
-		  document.getElementById("option2").addEventListener("click", check2);
-		  document.getElementById("option3").addEventListener("click", check3);
-		  document.getElementById("option4").addEventListener("click", check4);
+		  document.getElementById("multiple-choice-option1").addEventListener("click", check1);
+		  document.getElementById("multiple-choice-option2").addEventListener("click", check2);
+		  document.getElementById("multiple-choice-option3").addEventListener("click", check3);
+		  document.getElementById("multiple-choice-option4").addEventListener("click", check4);
 
-		  document.getElementById("next-button").addEventListener("click", nextQuestion);
-		  document.getElementById("new-quiz-button").addEventListener("click", startQuiz);
+		  document.getElementById("multiple-choice-next-button").addEventListener("click", nextMultipleChoiceQuestion);
+		  document.getElementById("multiple-choice-new-quiz-button").addEventListener("click", startup);
+
+		  document.getElementById("multiple-choice-button").addEventListener("click", startMultipleChoiceQuiz);
+		  document.getElementById("flash-card-button").addEventListener("click", startFlashCardQuiz);
+
+		  document.getElementById("flash-next-button").addEventListener("click", nextFlashCard);
+		  document.getElementById("flash-new-quiz-button").addEventListener("click", startup);
 
 		  function check1() {
-			checkAnswer(0);
+			checkMultipleChoiceAnswer(0);
 		  }
 		  function check2() {
-            checkAnswer(1);
+            checkMultipleChoiceAnswer(1);
 		  }
 		  function check3() {
-  		    checkAnswer(2);
+			checkMultipleChoiceAnswer(2);
 		  }
 		  function check4() {
-			checkAnswer(3);
+			checkMultipleChoiceAnswer(3);
 		  }
 
 		  document.onkeydown = checkKey;
 
-		  startQuiz();
+		  startup();
 		});
 	</script>  
   </body>
