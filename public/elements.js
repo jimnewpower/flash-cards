@@ -11,7 +11,6 @@ const multipleChoiceElements = [
     'multiple-choice-progress-div', 
     'multiple-choice-progress-bar', 
     'multiple-choice-next-button', 
-    'multiple-choice-new-quiz-button', 
     'multiple-choice-card', 
     'multiple-choice-question', 
     'multiple-choice-code-block', 
@@ -27,7 +26,6 @@ const flashCardElements = [
     'flash-progress-div',
     'flash-progress-bar',
     'flash-next-button',
-    'flash-new-quiz-button',
     'flash-card',
     'flash-question',
     'flash-card-body'

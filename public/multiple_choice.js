@@ -53,10 +53,13 @@ function initializeMultipleChoiceVariables() {
 
     document.getElementById("multiple-choice-code-block").innerHTML = ``;
     document.getElementById("multiple-choice-results").setAttribute("style", "display: none;");
-    document.getElementById("multiple-choice-new-quiz-button").setAttribute("style", "display: none;");
 }
 
 function nextMultipleChoiceQuestion() {
+    // If button is disabled, do nothing: user needs to answer the question first.
+    if (document.getElementById("multiple-choice-next-button").disabled == true) {
+        return;
+    }
     showRandomMultipleChoiceCard();
 }
 
@@ -93,11 +96,13 @@ function showMultipleChoiceCard(card) {
 
     document.getElementById("multiple-choice-code-block").innerHTML = ``;
     if (card.code != null) {
-        let codeHtml = `<pre><code class="${highlightLanguage}">`;
+        const prefix = `<pre><code class="${highlightLanguage}">`;
+        const suffix = `</code></pre>`;
+        let codeHtml = prefix;
         card.code.forEach(element => {
-            codeHtml += element + '\n';
+            codeHtml += escape(element) + `\n`;
         });
-        codeHtml += '</code></pre>';
+        codeHtml += suffix;
         document.getElementById("multiple-choice-code-block").innerHTML = codeHtml;
 
         // Use highlight.js to highlight code blocks.
@@ -114,6 +119,9 @@ function showMultipleChoiceCard(card) {
     document.getElementById("multiple-choice-card-footer").innerHTML = `Question ${usedMultipleChoiceCardIndexes.length} of ${multipleChoiceCards.length}`;
 
     showMultipleChoiceProgress();
+
+    // disable next button until an answer is selected
+    document.getElementById("multiple-choice-next-button").disabled = true;
 }
 
 function showMultipleChoiceProgress() {
@@ -147,11 +155,13 @@ function endMultipleChoiceQuiz() {
     document.getElementById("multiple-choice-progress-fail").innerHTML = `${percentIncorrect}%`;
 
     document.getElementById("multiple-choice-next-button").setAttribute("style", "display: none;");
-    document.getElementById("multiple-choice-new-quiz-button").setAttribute("style", "display: content;");
 }
 
 // Define the function to check the answer
 function checkMultipleChoiceAnswer(selectedAnswer) {
+    // enable next button 
+    document.getElementById("multiple-choice-next-button").disabled = false;
+
     let elements = ['multiple-choice-option1', 'multiple-choice-option2', 'multiple-choice-option3', 'multiple-choice-option4'];
 
     // If user has already answered this question, do nothing

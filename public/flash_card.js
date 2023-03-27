@@ -45,7 +45,6 @@ function initializeFlashCardVariables() {
     showNavigationElements();
 
     document.getElementById("flash-next-button").setAttribute("style", "display: content;");
-    document.getElementById("flash-new-quiz-button").setAttribute("style", "display: none;");
 }
 
 function nextFlashCard() {
@@ -57,10 +56,9 @@ function showRandomFlashCard() {
     let cardIndex = getRandomFlashCardIndex();
     if (cardIndex == -1) {
         // No more cards to show
-        document.getElementById("flash-question").innerHTML = "No more cards to show";
-        document.getElementById("flash-card-body").innerHTML = "Quiz complete";
+        document.getElementById("flash-question").innerHTML = "No more cards to show.";
+        document.getElementById("flash-card-body").innerHTML = "Quiz complete.";
         document.getElementById("flash-next-button").setAttribute("style", "display: none;");
-        document.getElementById("flash-new-quiz-button").setAttribute("style", "display: content;");
         return;
     } else {
         document.getElementById("flash-question").innerHTML = `<h5>${flashCards[cardIndex].question}</h5>`;
