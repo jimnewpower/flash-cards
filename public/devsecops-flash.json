@@ -8,7 +8,11 @@
       },
       {
         "question": "What are the core principles of Zero Trust?",
-        "bullets": ["All entities are untrusted by default", "Least privilege access is enforced", "Comprehensive security monitoring is implemented"],
+        "bullets": [
+            "All entities are untrusted by default", 
+            "Least privilege access is enforced", 
+            "Comprehensive security monitoring is implemented"
+        ],
         "answer": ""
       },
       {
@@ -18,7 +22,15 @@
       },
       {
         "question": "What are the critical attributes for managing and approving access to internal resources?",
-        "bullets": ["Device trust", "Geographic location", "Trusted IP", "Time of day/working hours", "Network zone", "Resource itself", "User group"],
+        "bullets": [
+            "Device trust", 
+            "Geographic location", 
+            "Trusted IP", 
+            "Time of day/working hours", 
+            "Network zone", 
+            "Resource itself", 
+            "User group"
+        ],
         "answer": ""
       },
       {
@@ -32,15 +44,33 @@
       },
       {
         "question": "What is CASB?",
-        "answer": "A cloud access security broker (CASB) is a security policy enforcement point that is placed between cloud service consumers and cloud service providers to combine and interject enterprise security policies as the cloud-based resources are accessed."
+        "answer": "A cloud access security broker (CASB) is a security policy enforcement point that is placed between cloud service consumers and cloud service providers to combine and interject enterprise security policies as the cloud-based resources are accessed.",
+        "bullets": [
+            "Protect sensitive data: CASBs can help to protect sensitive data by enforcing access controls, encryption, and data loss prevention (DLP) policies.",
+            "Comply with regulations: CASBs can help organizations to comply with regulations by providing visibility into cloud usage and enforcing security policies.",
+            "Mitigate risks: CASBs can help organizations to mitigate risks by identifying and remediating security vulnerabilities.",
+            "Improve security: CASBs can help organizations to improve security by providing visibility into cloud usage and enforcing security policies."
+        ]
       },
       {
         "question": "What is PAM?",
+        "bullets": [
+            "control access to privileged accounts and systems", 
+            "account management: create, disable, rotate passwords",
+            "session management: track and monitor privileged sessions, including recording screenshots and keystrokes",
+            "access control: restrict access to privileged accounts and systems based on user identity, role, geolocation, and time of day",
+            "audit and compliance: record all logins and actions taken by privileged users"
+        ],
         "answer": "Privileged Access Management is a security strategy that helps organizations manage and control access to privileged accounts and systems."
       },
       {
         "question": "What is EDR?",
-        "answer": "Endpoint detection and response (EDR) is a security solution that monitors and analyzes endpoint devices, such as laptops and desktops, for suspicious activity. EDR solutions can help organizations to detect and respond to security threats, such as malware, ransomware, and data breaches."
+        "answer": "Endpoint detection and response (EDR) is a security solution that monitors and analyzes endpoint devices, such as laptops and desktops, for suspicious activity. EDR solutions can help organizations to detect and respond to security threats, such as malware, ransomware, and data breaches.",
+        "bullets": [
+            "Endpoint monitoring: This includes tracking activity on endpoint devices, such as file access, process execution, and network connections.",
+            "Anomaly detection: This includes identifying suspicious activity that is not typically seen on endpoint devices.",
+            "Response: This includes taking action to mitigate security threats, such as isolating infected devices and blocking malicious traffic."
+        ]
       },
       {
         "question": "What is Authentication?",
@@ -68,15 +98,249 @@
       },
       {
         "question": "What is DevOps?",
-        "answer": "Development + Operations. Development = creating and maintaining software; Operations = managing and maintaining the infrastructure on which software runs."
+        "answer": "Development + Operations. Development = creating and maintaining software; Operations = managing and maintaining the infrastructure on which software runs.",
+        "bullets": [
+            "aims to shorten the systems development life cycle and provide continuous delivery with high quality",
+            "emphasizes collaboration between developers and operations (IT)",
+            "automates the process of software delivery and infrastructure changes",
+            "building, testing and releasing software faster and more reliably"
+        ]
       },
       {
         "question": "What is DevSecOps?",
-        "answer": "DevOps + Security: build security into the software development lifecycle."
+        "answer": "DevOps + Security: build security into the software development lifecycle.",
+        "bullets": [
+            "security is a shared responsibility between developers and security teams",
+            "security is built into the software development lifecycle",
+            "security should be automated",
+            "security should be monitored and measured"
+        ]
       },
       {
         "question": "What is SOAR?",
-        "answer": "SOAR stands for Security Orchestration, Automation, and Response. It is a security platform that helps organizations automate and orchestrate security tasks, such as incident response, threat hunting, and compliance."
+        "answer": "SOAR stands for Security Orchestration, Automation, and Response. It is a security platform that helps organizations automate and orchestrate security tasks, such as incident response, threat hunting, and compliance.",
+        "bullets": [
+            "Incident management: SOAR platforms can help organizations manage security incidents by providing a centralized place to store and track incidents, as well as automating tasks such as triage, containment, and remediation.",
+            "Threat hunting: SOAR platforms can help organizations identify and investigate threats by collecting and analyzing data from a variety of sources, such as security logs, network traffic, and endpoint data.",
+            "Compliance: SOAR platforms can help organizations comply with security regulations by automating tasks such as auditing and reporting."
+        ]
+      },
+      {
+        "question": "What is CI/CD?",
+        "answer": "Continuous Integration and Continuous Delivery: ensures that code changes are quickly and reliably delivered to production.",
+        "bullets": [
+            "CI: build and test every time a change is made; helps identify and fix bugs early on",
+            "CD: automatically deploy code changes to production; ensures that code changes are quickly and reliably delivered to users",
+            "Improves quality of software, reduces risk of errors, and speeds up the software delivery process"
+        ]
+      },
+      {
+        "question": "What is Secrets Management?",
+        "answer": "Manage sensitive information such as passwords, API keys, SSH keys, and certificates.",
+        "bullets": [
+            "secrets are stored in a secure vault",
+            "centralized management of secrets",
+            "encryption",
+            "access control",
+            "audit and compliance",
+            "rotation"
+        ]
+      },
+      {
+        "question": "What is CyberArk Application Access Manager?",
+        "answer": "Allows organizations to manage privileged access to applications.",
+        "bullets": [
+            "central repository for managing application credentials",
+            "controls access to applications",
+            "auditing",
+            "reporting"
+        ]
+      },
+      {
+        "question": "What does CyberArk Application Access Manager manage access to?",
+        "answer": "",
+        "bullets": [
+            "off-the-shelf applications",
+            "internally developed applications",
+            "scripts and other automation tools",
+            "cloud applications"
+        ]
+      },
+      {
+        "question": "What is a Hybrid Cloud Workload?",
+        "answer": "A workload that is deployed across multiple environments, including on-premises, private cloud, and public cloud.",
+        "bullets": [
+            "cost savings: public clouds cheaper than on-premises",
+            "scalability: public clouds can scale up and down quickly due to changing demand",
+            "agility: public clouds can quickly deploy new applications and services",
+            "innovation: public clouds offer access to the latest technologies and innovations"
+        ]
+      },
+      {
+        "question": "What is Cloud Orchestration?",
+        "answer": "Manages and automates the deployment of workloads across multiple cloud environments.",
+        "bullets": [
+            "Kubernetes",
+            "AWS CloudFormation",
+            "Azure Resource Manager",
+            "Google Cloud Deployment Manager",
+            "OpenStack Heat"
+        ]
+      },
+      {
+        "question": "What is Containerization?",
+        "answer": "Package software and its dependencies into a standardized unit called a container.",
+        "bullets": [
+            "containers are isolated from each other and bundle their own software, libraries and configuration files",
+            "containers communicate with each other through well-defined channels",
+            "containers are a lightweight, efficient and portable way to deploy applications",
+            "containers are the building blocks of cloud-native applications",
+            "Docker is the most popular",
+            "Open Container Initiative (OCI) is a vendor-neutral open source initiative to create open standards around container formats and runtimes"
+        ]
+      },
+      {
+        "question": "What is Configuration Management?",
+        "answer": "A set of processes and tools that help to manage the state of a system.",
+        "bullets": [
+            "identify components of a system, their relationships, and the desired state of those components",
+            "ensure that systems are in a consistent and known state",
+            "track changes over time"
+        ]
+      },
+      {
+        "question": "What are some examples of Configuration Management?",
+        "answer": "",
+        "bullets": [
+            "Version control systems: track changes, revert to previous versions",
+            "Configuration management databases: track the state of a system, generate reports",
+            "Configuration management tools: automate tasks"
+        ]
+      },
+      {
+        "question": "What are Configuration Management Databases (DMDB)?",
+        "answer": "",
+        "bullets": [
+            "stores information about the configuration of an organization's IT assets",
+            "information includes hardware, software, applications used by the organization, and the relationships between these assets",
+            "track changes to the configuration of an organization's IT assets over time",
+            "generate reports on the configuration of an organization's IT assets",
+            "essential part of any IT organization",
+            "ensure that IT assets are in a consistent and known state",
+            "ensure that IT assets are being used in accordance with the organization's policies and procedures",
+            "can help identify and fix problems more quickly",
+            "can prevent unathorized changes to IT assets"
+        ]
+      },
+      {
+        "question": "Who are some Configuration Management Database (CMDB) vendors?",
+        "answer": "",
+        "bullets": [
+            "ServiceNow",
+            "CA Technologies",
+            "Micro Focus",
+            "SolarWinds",
+            "BMC Software",
+            "HP",
+            "IBM",
+            "SAP",
+            "Oracle",
+            "Microsoft"
+        ]
+      },
+      {
+        "question": "What is the Software Development Lifecycle (SDLC)?",
+        "answer": "An iterative framework for software development that invloves the following phases:",
+        "bullets": [
+            "Planning: identify needs, define scope",
+            "Analysis: understand and document requirements",
+            "Design: create a blueprint for the software, including architecture, data models, and user interfaces",
+            "Development: build the software according to the design",
+            "Testing: test the software to ensure it meets requirements",
+            "Deployment: make software available to users",
+            "Maintenance: fixing bugs and updating software as needed"
+        ]
+      },
+      {
+        "question": "What are Agile Build Methodologies?",
+        "answer": "Iterative and incremental approaches to software development that break down the development process into smaller, more manageable pieces.",
+        "bullets": ["allows teams to focus on delivering working software more frequently and to get feedback from users early and often"]
+      },
+      {
+        "question": "What are some example Agile Build Methodologies?",
+        "answer": "",
+        "bullets": [
+            "Scrum: sprints, daily standups, product backlog, sprint backlog, burndown charts",
+            "Kanban: a visual way to manage work; tasks move from column to column as they are completed",
+            "Extreme Programming (XP): practices that focus on quality, teamwork, and communication; pair programming, test-driven development, continuous integration"
+        ]
+      },
+      {
+        "question": "What is a JSON Web Token (JWT)?",
+        "answer": "A JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is signed using a JSON Web Signature (JWS) algorithm. JWTs can be used to represent a variety of claims, such as:",
+        "bullets": [
+            "Identity: Claims that assert the identity of the JWT holder, such as their name, email address, or username.",
+            "Roles: Claims that assert the roles that the JWT holder has, such as admin or user.",
+            "Permissions: Claims that assert the permissions that the JWT holder has, such as the ability to read or write data.",
+            "Other information: Any other information that the JWT issuer wants to represent."
+        ]
+      },
+      {
+        "question": "What are some features and functionality associated with JSON Web Tokens (JWT)?",
+        "answer": "",
+        "bullets": [
+            "JWTs are often used in conjunction with OAuth 2.0 and OpenID Connect to provide authorization and authentication services.",
+            "JWTs are a secure way to transmit information between parties because they are signed. This means that the recipient of a JWT can be sure that the JWT was created by the party that it claims to be from, and that the contents of the JWT have not been tampered with.",
+            "JWTs are also a lightweight way to transmit information because they are encoded in JSON. This makes them ideal for use in applications where bandwidth is limited, such as mobile applications.",
+            "Overall, JWTs are a versatile and secure way to transmit information between parties. They are often used in conjunction with OAuth 2.0 and OpenID Connect to provide authorization and authentication services."
+        ]
+      },
+      {
+        "question": "What is OAuth?",
+        "answer": "OAuth is an open standard for authorization that enables third-party applications to access user data on another website or application without the user having to provide their password. It is a way to grant access to specific resources without giving away the keys to the kingdom.      OAuth is used by many popular websites and applications, such as Google, Facebook, and Twitter. It allows these websites and applications to share data with other websites and applications without compromising the security of the user's account. OAuth works by using a series of tokens. A client application requests access to a resource from the resource owner. The resource owner authorizes the client application to access the resource, and the resource owner's authorization server issues a token to the client application. The client application then uses the token to access the resource. OAuth is a secure and flexible way to authorize access to resources. It is widely used by websites and applications, and it is supported by a variety of platforms and technologies.",
+        "bullets": []
+      },
+      {
+        "question": "What are the core services of Cloud Providers?",
+        "answer": "",
+        "bullets": [
+            "Infrastructure as a Service (IaaS): provides virtual machines, storage, and networking",
+            "Platform as a Service (PaaS): provides a platform for developers to build applications: includes IaaS and middleware, such as operating systems, databases, and web servers",
+            "Function as a Service (FaaS): (Lambda) provides a platform for running code without having to manage servers",
+            "Software as a Service (SaaS): provides applications that run in the cloud",
+            "Database as a Service (DBaaS): provides database services in the cloud",
+            "Storage as a Service (STaaS): provides storage services in the cloud",
+            "Management as a Service (MaaS): provides management services in the cloud"           
+        ]
+      },
+      {
+        "question": "What are some benefits of using Cloud Providers?",
+        "answer": "",
+        "bullets": [
+            "Scalability",
+            "Cost-effectiveness",
+            "Reliability",
+            "Security",
+            "Flexibility"
+        ]
+      },
+      {
+        "question": "What is IT Automation?",
+        "answer": "IT automation is the use of software to automate tasks that are typically performed manually. It can be used to automate a wide range of tasks, from simple tasks such as sending emails to complex tasks such as provisioning servers.",
+        "bullets": [
+            "Terraform: open-source (HashiCorp), declarative, infrastructure as code",
+            "Ansible: open-source, platform that automates software provisioning, configuration management, application deployment, and orchestration"            
+        ]
+      },
+      {
+        "question": "What is SNYK?",
+        "answer": "SNYK is a developer-first platform that helps organizations find, fix, and prevent known vulnerabilities in open source dependencies and container images. It is a cloud-based service that integrates with popular development tools, such as GitHub, Jenkins, and Jira.",
+        "bullets": []
+      },
+      {
+        "question": "What is Jenkins?",
+        "answer": "Jenkins is an open-source automation server that helps organizations automate the non-human part of the software development process, with continuous integration and continuous delivery (CI/CD). It is a popular choice for organizations that want to automate their software delivery pipelines.",
+        "bullets": []
       }
     ]
 }  
