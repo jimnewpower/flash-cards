@@ -5,5 +5,5 @@ function selectMultipleChoice() {
 
 function selectFlashCards() {
     console.log('selectFlashCards()');
-    startFlashCardQuiz('./java-flash.json');
+    startFlashCardQuiz('./devsecops-flash.json');
 }

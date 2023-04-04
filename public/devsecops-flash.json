@@ -1,0 +1,82 @@
+{
+    "topic": "Cybersecurity and DevSecOps",
+    "language": "language-english",
+    "flashcards": [
+      {
+        "question": "What is Zero Trust?",
+        "answer": "A security model that assumes that all users and devices are untrusted until they are verified."
+      },
+      {
+        "question": "What are the core principles of Zero Trust?",
+        "bullets": ["All entities are untrusted by default", "Least privilege access is enforced", "Comprehensive security monitoring is implemented"],
+        "answer": ""
+      },
+      {
+        "question": "What are the 5 phases of maturity in Zero Trust?",
+        "bullets": ["Traditional", "Emerging", "Maturing", "Elevated", "Evolved"],
+        "answer": ""
+      },
+      {
+        "question": "What are the critical attributes for managing and approving access to internal resources?",
+        "bullets": ["Device trust", "Geographic location", "Trusted IP", "Time of day/working hours", "Network zone", "Resource itself", "User group"],
+        "answer": ""
+      },
+      {
+        "question": "What is IAM?",
+        "answer": "Identity and Access Management (IAM) is a security framework that helps organizations manage and secure digital identities. IAM systems control who has access to what resources, and when. They also help to ensure that only authorized users can access sensitive data."
+      },
+      {
+        "question": "What is SIEM?",
+        "answer": "SIEM stands for Security Information and Event Management. It is a security solution that helps organizations collect, analyze, and correlate security logs from a variety of sources, such as firewalls, intrusion detection systems, and servers. SIEM solutions can help organizations identify security threats, investigate security incidents, and comply with security regulations.",
+        "bullets": ["Log collection", "Log analysis", "Log correlation", "Alerting", "Reporting"]
+      },
+      {
+        "question": "What is CASB?",
+        "answer": "A cloud access security broker (CASB) is a security policy enforcement point that is placed between cloud service consumers and cloud service providers to combine and interject enterprise security policies as the cloud-based resources are accessed."
+      },
+      {
+        "question": "What is PAM?",
+        "answer": "Privileged Access Management is a security strategy that helps organizations manage and control access to privileged accounts and systems."
+      },
+      {
+        "question": "What is EDR?",
+        "answer": "Endpoint detection and response (EDR) is a security solution that monitors and analyzes endpoint devices, such as laptops and desktops, for suspicious activity. EDR solutions can help organizations to detect and respond to security threats, such as malware, ransomware, and data breaches."
+      },
+      {
+        "question": "What is Authentication?",
+        "answer": "The process of verifying the identity of a user or process."
+      },
+      {
+        "question": "What is agent-based authentication?",
+        "answer": "Requires the use of a software agent on the user's device. More secure, but also more complex to implement and manage than agentless authentication."
+      },
+      {
+        "question": "What is agentless authentication?",
+        "answer": "User's credentials are verified by the authentication server directly (e.g. via a REST API). Easier to implement and manage than agent-based authentication, but less secure."
+      },
+      {
+        "question": "What is identity security?",
+        "answer": "A set of principles, processes, and technologies that are used to ensure the security of digital identities. It encompasses the management of user identities, access rights, and privileges."
+      },
+      {
+        "question": "What is SSO?",
+        "answer": "Single sign-on. Allows users to access multiple applications with a single set of credentials."
+      },
+      {
+        "question": "What is MFA?",
+        "answer": "Multi-factor authentication. Requires users to provide two or more authentication factors (e.g. password, PIN, biometric, etc.) to verify their identity."
+      },
+      {
+        "question": "What is DevOps?",
+        "answer": "Development + Operations. Development = creating and maintaining software; Operations = managing and maintaining the infrastructure on which software runs."
+      },
+      {
+        "question": "What is DevSecOps?",
+        "answer": "DevOps + Security: build security into the software development lifecycle."
+      },
+      {
+        "question": "What is SOAR?",
+        "answer": "SOAR stands for Security Orchestration, Automation, and Response. It is a security platform that helps organizations automate and orchestrate security tasks, such as incident response, threat hunting, and compliance."
+      }
+    ]
+}  
