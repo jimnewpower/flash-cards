@@ -341,6 +341,15 @@
         "question": "What is Jenkins?",
         "answer": "Jenkins is an open-source automation server that helps organizations automate the non-human part of the software development process, with continuous integration and continuous delivery (CI/CD). It is a popular choice for organizations that want to automate their software delivery pipelines.",
         "bullets": []
+      },
+      {
+        "question": "What is the Shared Responsibility Model?",
+        "answer": "The shared responsibility model is a framework that defines the security responsibilities of cloud service providers (CSPs) and their customers. The model outlines the different areas of security that each party is responsible for, and helps to ensure that both parties are working together to protect data and systems. The shared responsibility model is typically divided into three areas:",
+        "bullets": [
+            "Security of the cloud infrastructure: The CSP is responsible for the security of the underlying infrastructure, such as the physical servers, networks, and storage devices.",
+            "Security of the customer data: The customer is responsible for the security of their data, including data that is stored in the cloud.",
+            "Security of the cloud applications and services: The CSP is responsible for the security of the cloud applications and services that they provide, such as web servers, databases, and email systems."
+        ]
       }
     ]
 }  
