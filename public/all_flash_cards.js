@@ -31,7 +31,7 @@ function showAllFlashCards(filename) {
 }
 
 function showCards() {
-    let html = '';
+    let html = '<div class="row">';
     for (let i = 0; i < allFlashCards.length; i++) {
         let card = allFlashCards[i];
 
@@ -48,17 +48,23 @@ function showCards() {
             });
         }
 
-        html += `
+        let spanner = '';
+        if (i > 0 && i % 3 == 0) {
+            spanner = '</div><div class="w=100"></div><div class="row">';
+        }
+
+        html += `${spanner}
+        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
         <div class="card">
             <div class="card-header">
             ${card.question}
             </div>
 
-            <div class="card-body" id="flash-card-body">
+            <div class="card-body d-flex flex-column">
             ${answer}
             </div>
-        </div><br>`;
-
+        </div></div>`;
     }
+    html += '</div>';
     document.getElementById("all-flash-cards-container").innerHTML = html;
 }
