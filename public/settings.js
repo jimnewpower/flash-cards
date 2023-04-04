@@ -1,7 +1,8 @@
 function showSettings() {
     hideQuizTypeButtons();
-    hideFlashCardElements();
     hideMultipleChoiceElements();
+    hideFlashCardElements();
+    hideAllFlashCardElements();
     showSettingsElements();
 
     document.getElementById("home-button").disabled = false;

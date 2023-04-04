@@ -2,6 +2,7 @@ function startup() {
     showQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();
+    hideAllFlashCardElements();
     hideSettingsElements();
 
     showNavigationElements();
@@ -10,6 +11,7 @@ function startup() {
     document.getElementById("topic").innerHTML = "Select Quiz Type";
     document.getElementById("multiple-choice-button").setAttribute("style", "display: content;");
     document.getElementById("flash-card-button").setAttribute("style", "display: content;");
+    document.getElementById("all-flash-cards-button").setAttribute("style", "display: content;");
     document.getElementById("multiple-choice-container").setAttribute("style", "display: none;");
     document.getElementById("flash-card-container").setAttribute("style", "display: none;");
 

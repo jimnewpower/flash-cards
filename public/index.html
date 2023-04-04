@@ -44,7 +44,12 @@
 						<path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"></path>
 						<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"></path>
   				    </svg>Flash Cards</button>
-			</div>
+				<button type="button" id="all-flash-cards-button" class="btn btn-outline-primary btn-lg">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-text" viewBox="0 0 24 24">
+					<path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"></path>
+					<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"></path>
+					</svg>Show All Flash Cards</button>
+				</div>
 		</div>
 		
 		<div class="container" id="multiple-choice-container">
@@ -109,6 +114,9 @@
 			</div>
 		</div>
 
+		<div class="container" id="all-flash-cards-container">
+		</div>
+
 		<div class="container", id="settings-container">
 			<p id="settings-text"></p>
 		</div>
@@ -136,6 +144,7 @@
     <script src="settings.js"></script>
     <script src="multiple_choice.js"></script>
     <script src="flash_card.js"></script>
+    <script src="all_flash_cards.js"></script>
 	<script src="keyboard_listener.js"></script>
 
 	<script type="module">
@@ -150,6 +159,7 @@
 
 		  document.getElementById("multiple-choice-button").addEventListener("click", selectMultipleChoice);
 		  document.getElementById("flash-card-button").addEventListener("click", selectFlashCards);
+		  document.getElementById("all-flash-cards-button").addEventListener("click", selectAllFlashCards);
 
 		  document.getElementById("flash-next-button").addEventListener("click", nextFlashCard);
 

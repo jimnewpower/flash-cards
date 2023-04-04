@@ -62,37 +62,42 @@ function showRandomFlashCard() {
         document.getElementById("flash-next-button").setAttribute("style", "display: none;");
         return;
     } else {
-        document.getElementById("flash-question").innerHTML = `<h5>${flashCards[cardIndex].question}</h5>`;
-
-        document.getElementById("flash-card-body").innerHTML = ``;
-        let html = ``;
-        let answer = flashCards[cardIndex].answer;
-        if (answer != null) {
-            html += answer;
-        }
-
-        let bullets = flashCards[cardIndex].bullets;
-        if (bullets != null) {
-            html += `<ul>`;
-            bullets.forEach(bullet => {
-                html += `<li>${bullet}</li>`;
-            });
-        }
-        document.getElementById("flash-card-body").innerHTML = html;
-
-        document.querySelectorAll('span.code').forEach(el => {
-            el.classList.add(highlightLanguage);
-
-            // Avoid “One of your code blocks includes unescaped HTML” error
-            el.textContent = escape(el.textContent.trim());
-
-            // then highlight each
-            hljs.highlightElement(el);
-          });
-
-        // Use highlight.js to highlight code blocks.
-        hljs.highlightAll();
+        let card = flashCards[cardIndex];
+        populateFlashCard(card);
     }
+}
+
+function populateFlashCard(card) {
+    document.getElementById("flash-question").innerHTML = `<h5>${card.question}</h5>`;
+
+    document.getElementById("flash-card-body").innerHTML = ``;
+    let html = ``;
+    let answer = card.answer;
+    if (answer != null) {
+        html += answer;
+    }
+
+    let bullets = card.bullets;
+    if (bullets != null) {
+        html += `<ul>`;
+        bullets.forEach(bullet => {
+            html += `<li>${bullet}</li>`;
+        });
+    }
+    document.getElementById("flash-card-body").innerHTML = html;
+
+    document.querySelectorAll('span.code').forEach(el => {
+        el.classList.add(highlightLanguage);
+
+        // Avoid “One of your code blocks includes unescaped HTML” error
+        el.textContent = escape(el.textContent.trim());
+
+        // then highlight each
+        hljs.highlightElement(el);
+      });
+
+    // Use highlight.js to highlight code blocks.
+    hljs.highlightAll();
 }
 
 function showFlashCardProgress() {

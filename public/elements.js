@@ -1,6 +1,7 @@
 const quizTypeButtons = [
     'multiple-choice-button',
-    'flash-card-button'
+    'flash-card-button',
+    'all-flash-cards-button'
 ];
 
 const settingsElements = [
@@ -34,6 +35,10 @@ const flashCardElements = [
     'flash-card',
     'flash-question',
     'flash-card-body'
+];
+
+const allFlashCardElements = [
+    'all-flash-cards-container'
 ];
 
 const navigationElements = [
@@ -75,6 +80,14 @@ function showFlashCardElements() {
 
 function hideFlashCardElements() {
     applyAttributeToElements(flashCardElements, styleAttribute, displayNoneValue);
+}
+
+function showAllFlashCardElements() {
+    applyAttributeToElements(allFlashCardElements, styleAttribute, displayContentValue);
+}
+
+function hideAllFlashCardElements() {
+    applyAttributeToElements(allFlashCardElements, styleAttribute, displayNoneValue);
 }
 
 function showNavigationElements() {
