@@ -31,7 +31,7 @@ function showAllFlashCards(filename) {
 }
 
 function showCards() {
-    let html = '<div class="row">';
+    let html = '<div class="row justify-content-center">';
     for (let i = 0; i < allFlashCards.length; i++) {
         let card = allFlashCards[i];
 
@@ -50,12 +50,12 @@ function showCards() {
 
         let spanner = '';
         if (i > 0 && i % 3 == 0) {
-            spanner = '</div><div class="w=100"></div><div class="row">';
+            spanner = '</div><div class="row justify-content-center">';
         }
 
         html += `${spanner}
-        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-        <div class="card">
+        <div class="col-auto mb-3 d-flex align-items-stretch">
+        <div class="card" style="width: 24rem;">
             <div class="card-header">
             ${card.question}
             </div>
