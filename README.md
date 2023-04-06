@@ -1,6 +1,6 @@
 # flash-cards
 
-A simple flash card and quiz app for learning.
+A simple flash card and quiz app for learning. Written in HTML/JavaScript. Bootstrap for CSS.
 
 # Example Multiple Choice Quiz Card
 ![Example Multiple Choice Quiz Card](public/images/card-multi.png)
