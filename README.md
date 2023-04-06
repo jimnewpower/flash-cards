@@ -41,6 +41,13 @@ If the `question` contains a code snippet, it will be in the `code` array. The c
 # AWS Dynamo DB
 [JSON to DynamoDB](https://dynobase.dev/dynamodb-json-converter-tool/)  
 
+Add AWS dependencies for go:
+```bash
+go get github.com/aws/aws-sdk-go-v2/aws
+go get github.com/aws/aws-sdk-go-v2/config
+go get github.com/aws/aws-sdk-go-v2/service/dynamodb
+```
+
 Running the backend locally:
 ```bash
 go build
