@@ -37,3 +37,20 @@ If the `question` contains a code snippet, it will be in the `code` array. The c
   ]
 }
 ```
+
+# AWS Dynamo DB
+[JSON to DynamoDB](https://dynobase.dev/dynamodb-json-converter-tool/)  
+
+Running the backend locally:
+```bash
+go build
+./flash-cards
+```
+
+Requires ~/.aws/credentials file with the following:
+```bash
+[default]
+aws_access_key_id=<key id>
+aws_secret_access_key=<secret access key>
+```
+These are the credentials from an AWS user after creating an access key.
