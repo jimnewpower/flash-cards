@@ -48,6 +48,11 @@ go get github.com/aws/aws-sdk-go-v2/config
 go get github.com/aws/aws-sdk-go-v2/service/dynamodb
 ```
 
+Add mux for routing:
+```bash
+go get -u github.com/gorilla/mux
+```
+
 Running the backend locally:
 ```bash
 go build
