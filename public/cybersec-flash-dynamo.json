@@ -1,0 +1,148 @@
+{
+    "topic": {
+      "S": "Cybersecurity and DevSecOps"
+    },
+    "language": {
+      "S": "language-english"
+    },
+    "flashcards": {
+      "L": [
+        {
+          "M": {
+            "question": {
+              "S": "What is Zero Trust?"
+            },
+            "answer": {
+              "S": "A security model that assumes that all users and devices are untrusted until they are verified."
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What are the core principles of Zero Trust?"
+            },
+            "bullets": {
+              "L": [
+                {
+                  "S": "All entities are untrusted by default"
+                },
+                {
+                  "S": "Least privilege access is enforced"
+                },
+                {
+                  "S": "Comprehensive security monitoring is implemented"
+                }
+              ]
+            },
+            "answer": {
+              "S": ""
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What are the 5 phases of maturity in Zero Trust?"
+            },
+            "bullets": {
+              "L": [
+                {
+                  "S": "Traditional"
+                },
+                {
+                  "S": "Emerging"
+                },
+                {
+                  "S": "Maturing"
+                },
+                {
+                  "S": "Elevated"
+                },
+                {
+                  "S": "Evolved"
+                }
+              ]
+            },
+            "answer": {
+              "S": ""
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What are the critical attributes for managing and approving access to internal resources?"
+            },
+            "bullets": {
+              "L": [
+                {
+                  "S": "Device trust"
+                },
+                {
+                  "S": "Geographic location"
+                },
+                {
+                  "S": "Trusted IP"
+                },
+                {
+                  "S": "Time of day/working hours"
+                },
+                {
+                  "S": "Network zone"
+                },
+                {
+                  "S": "Resource itself"
+                },
+                {
+                  "S": "User group"
+                }
+              ]
+            },
+            "answer": {
+              "S": ""
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What is IAM?"
+            },
+            "answer": {
+              "S": "Identity and Access Management (IAM) is a security framework that helps organizations manage and secure digital identities. IAM systems control who has access to what resources, and when. They also help to ensure that only authorized users can access sensitive data."
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What is SIEM?"
+            },
+            "answer": {
+              "S": "SIEM stands for Security Information and Event Management. It is a security solution that helps organizations collect, analyze, and correlate security logs from a variety of sources, such as firewalls, intrusion detection systems, and servers. SIEM solutions can help organizations identify security threats, investigate security incidents, and comply with security regulations."
+            },
+            "bullets": {
+              "L": [
+                {
+                  "S": "Log collection"
+                },
+                {
+                  "S": "Log analysis"
+                },
+                {
+                  "S": "Log correlation"
+                },
+                {
+                  "S": "Alerting"
+                },
+                {
+                  "S": "Reporting"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }

@@ -1,0 +1,52 @@
+{
+    "topic": {
+      "S": "Java Programming Language"
+    },
+    "language": {
+      "S": "language-java"
+    },
+    "flashcards": {
+      "L": [
+        {
+          "M": {
+            "question": {
+              "S": "What is a <span class=\"code\">HashMap</span>?"
+            },
+            "answer": {
+              "S": "A <span class=\"code\">HashMap</span> is a Java implementation of popular data structure hash table, which allows you to store key value pairs e.g. books and their prices. It also implement the <span class=\"code\">java.util.Map</span> interface which is Java's interface for a class which allows you to store key value pairs. This means you can pass <span class=\"code\">HashMap</span> to a method, which is expecting <span class=\"code\">java.util.Map</span> interface."
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What is the requirement for objects to be stored as keys and values in a <span class=\"code\">HashMap</span>?"
+            },
+            "answer": {
+              "S": "Both key and value must implement <span class=\"code\">equals()</span> and <span class=\"code\">hashcode()</span>. The <span class=\"code\">hashcode()</span> method of key is used to find the bucket location, where entry object is stored. Similarly, <span class=\"code\">equals()</span> method of key and value is used when you retrieve an object from <span class=\"code\">HashMap</span>. See Core Java for the Impatient for more details on how <span class=\"code\">HashMap</span> internally works."
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What is the difference between a <span class=\"code\">HashMap</span> and a <span class=\"code\">Hashtable</span>?"
+            },
+            "answer": {
+              "S": "The key difference between them is that <span class=\"code\">HashMap</span> is not thread-safe while <span class=\"code\">Hashtable</span> is thread-safe. This tread-safety is achieved using synchronization, which also makes <span class=\"code\">Hashtable</span> slower than <span class=\"code\">HashMap</span>. Another worth noting difference is that <span class=\"code\">HashMap</span> was first added in Java 1.4 while <span class=\"code\">Hashtable</span> is present from the start of JDK."
+            }
+          }
+        },
+        {
+          "M": {
+            "question": {
+              "S": "What is the difference between a <span class=\"code\">HashMap</span> and a <span class=\"code\">ConcurrentHashMap</span>?"
+            },
+            "answer": {
+              "S": "The <span class=\"code\">ConcurrentHashMap</span> is an scalable and concurrent version of <span class=\"code\">HashMap</span>. The key difference again is same as it was in previous question, <span class=\"code\">HashMap</span> is not thread-safe but <span class=\"code\">ConcurrentHashMap</span> is thread-safe, though it is more scalable than <span class=\"code\">Hashtable</span> or synchronized <span class=\"code\">HashMap</span> because of its implementation e.g. it divides the map into several segments and it never lock whole map, instead only segments are locked when you add or remove entries from <span class=\"code\">ConcurrentHashMap</span>. You can learn more about its implementation on my post How <span class=\"code\">ConcurrentHashMap</span> works in Java."
+            }
+          }
+        }
+      ]
+    }
+  }
