@@ -14,7 +14,7 @@ function startup() {
     document.getElementById("all-flash-cards-button").setAttribute("style", "display: content;");
     document.getElementById("multiple-choice-container").setAttribute("style", "display: none;");
     document.getElementById("flash-card-container").setAttribute("style", "display: none;");
-
+ 
     fetch('./metadata.json')
         .then(response => {
             if (!response.ok) {
