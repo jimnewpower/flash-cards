@@ -4,7 +4,7 @@
   "flashcards": [
     {
       "question": "What is a <span class=\"code\">HashMap</span>?",
-      "answer": "An <span class=\"code\">HashMap</span> is a Java implementation of popular data structure hash table, which allows you to store key value pairs e.g. books and their prices. It also implement the <span class=\"code\">java.util.Map</span> interface which is Java's interface for a class which allows you to store key value pairs. This means you can pass <span class=\"code\">HashMap</span> to a method, which is expecting <span class=\"code\">java.util.Map</span> interface."
+      "answer": "A <span class=\"code\">HashMap</span> is a Java implementation of popular data structure hash table, which allows you to store key value pairs e.g. books and their prices. It also implement the <span class=\"code\">java.util.Map</span> interface which is Java's interface for a class which allows you to store key value pairs. This means you can pass <span class=\"code\">HashMap</span> to a method, which is expecting <span class=\"code\">java.util.Map</span> interface."
     },
     {
       "question": "What is the requirement for objects to be stored as keys and values in a <span class=\"code\">HashMap</span>?",
