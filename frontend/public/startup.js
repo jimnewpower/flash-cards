@@ -15,7 +15,10 @@ function startup() {
     document.getElementById("multiple-choice-container").setAttribute("style", "display: none;");
     document.getElementById("flash-card-container").setAttribute("style", "display: none;");
  
-    fetch('./metadata.json')
+    let url = 'http://localhost:9090/categories'
+//    let url = './metadata.json'
+
+    fetch(url)
         .then(response => {
             if (!response.ok) {
                 showErrorHtml(response);
@@ -24,7 +27,7 @@ function startup() {
             return response.json();
         })
         .then(data => {
-            // console.log(data);
+            console.log(data);
         })
         .catch(error => {
             showError(error);
