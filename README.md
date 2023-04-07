@@ -3,10 +3,10 @@
 A simple flash card and quiz app for learning. Written in HTML/JavaScript. Bootstrap for CSS.
 
 # Example Multiple Choice Quiz Card
-![Example Multiple Choice Quiz Card](public/images/card-multi.png)
+![Example Multiple Choice Quiz Card](frontend/public/images/card-multi.png)
 
 # Example Quiz Complete
-![Example Quiz Complete](public/images/quiz-complete.png)
+![Example Quiz Complete](frontend/public/images/quiz-complete.png)
 
 # JSON Schema
 The `topic` is used as the Quiz Title. The `language` is used to determine the syntax highlighting for the code block. The `questions` are an array of objects with the `question`, `options`, and `answer`. The `options` are an array of strings. The `answer` is the index of the correct option.
