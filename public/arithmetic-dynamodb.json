@@ -1,0 +1,31 @@
+{
+    "Category": {
+      "S": "Math"
+    },
+    "Title": {
+      "S": "Basic Arithmetic"
+    },
+    "flashcards": {
+      "L": [
+        {
+          "M": {
+            "question": {"S": "What is 2 + 2?" },
+            "answer": {"S": "4" }
+          }
+        },
+        {
+            "M": {
+              "question": {"S": "What is 9 * 9?" },
+              "answer": {"S": "81" }
+            }
+        },
+        {
+            "M": {
+              "question": {"S": "What is 23 - 11?" },
+              "answer": {"S": "12" }
+            }
+        }
+      ]
+    }
+}
+  

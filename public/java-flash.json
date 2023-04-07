@@ -3,6 +3,38 @@
   "language": "language-java",
   "flashcards": [
     {
+      "question": "What is Java?",
+      "answer": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible."
+    },
+    {
+      "question": "What is the main feature of Java?",
+      "answer": "Java is platform independent which means that programs written in Java can run on any computer with a Java Virtual Machine (JVM)."
+    },
+    {
+      "question": "What is a class in Java?",
+      "answer": "A class in Java is a blueprint or template for creating objects, which encapsulate data and behavior."
+    },
+    {
+      "question": "What is an object in Java?",
+      "answer": "An object in Java is an instance of a class, which has its own state and behavior."
+    },
+    {
+      "question": "What is inheritance in Java?",
+      "answer": "Inheritance in Java is the ability of a class to inherit properties and behavior from a parent class, allowing you to reuse code and create hierarchies of classes."
+    },
+    {
+      "question": "What is polymorphism in Java?",
+      "answer": "Polymorphism in Java is the ability of a variable, method, or object to take on multiple forms, allowing you to write code that can work with objects of different classes."
+    },
+    {
+      "question": "What is an interface in Java?",
+      "answer": "An interface in Java is a collection of abstract methods that define a set of behaviors that a class can implement."
+    },
+    {
+      "question": "What is a package in Java?",
+      "answer": "A package in Java is a mechanism for organizing related classes and interfaces into a single namespace, helping to avoid naming conflicts and making it easier to manage large codebases."
+    },
+    {
       "question": "What is a <span class=\"code\">HashMap</span>?",
       "answer": "A <span class=\"code\">HashMap</span> is a Java implementation of popular data structure hash table, which allows you to store key value pairs e.g. books and their prices. It also implement the <span class=\"code\">java.util.Map</span> interface which is Java's interface for a class which allows you to store key value pairs. This means you can pass <span class=\"code\">HashMap</span> to a method, which is expecting <span class=\"code\">java.util.Map</span> interface."
     },

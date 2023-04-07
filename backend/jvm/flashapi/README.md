@@ -1,5 +1,22 @@
 # Flash Cards Backend
 
+# Spring Boot Configuration
+Add dependency:
+`implementation 'org.springframework.boot:spring-boot-configuration-processor:3.0.4'`  
+
+Add annotation `@ConfigurationPropertiesScan` to Application class to instruct the application
+to process configuration properties.
+
+Add `@ConfigurationProperties` annotation to class that will read the application.properties. e.g.
+```java
+@ConfigurationProperties(prefix = "aws")
+class AWSConnect {
+    private String accessKey;
+    private String secretKey;
+}
+```
+
+
 # Database
 AWS DynamoDB. Access with the AWS Java SDK.
 
@@ -28,6 +45,12 @@ aws dynamodb list-tables
 }
 ```
 
+Set the environment variables [see](#run-locally):
+```bash
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+```
+
 CLI Reference:
 - [AWS DynamoDB CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/index.html)
 - [Query](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/query.html)
@@ -35,14 +58,19 @@ CLI Reference:
 Guides: 
 - [Use DynamoDB with AWS SDK for Java](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/sdk-general-information-section.html)
 - [AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup-basics.html)
-
+- [Query Table Java](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.ReadItem.html)
+- [GitHub Examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/creating_first_project)
+- [Javadoc](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/dynamodb/DynamoDbClient.html)
 
 # Build
 `./gradlew build`
 
 # Run Locally
-- `./gradlew bootRun`
-- or `java -jar ./build/libs/flashapi-0.0.1-SNAPSHOT.jar`
+To pick up the AWS credentials from the system environment variables, in a terminal, run:  
+`java -jar ./build/libs/flashapi-0.0.1-SNAPSHOT.jar`  
+
+Go to the endpoint in a browser:  
+`http://localhost:9090/categories`
 
 # Endpoints
 `/categories` - list the categories available in the DynamoDB database.
