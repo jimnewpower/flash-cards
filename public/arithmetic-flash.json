@@ -2,20 +2,65 @@
   "topic": "Arithmetic",
   "language": "language-plaintext",
   "flashcards": [
-    { "question": "What is 2 + 2?", "answer": "4" },
-    { "question": "What is 3 x 5?", "answer": "15" },
-    { "question": "What is 10 - 6?", "answer": "4" },
-    { "question": "What is 24 / 6?", "answer": "4" },
-    { "question": "What is the square root of 49?", "answer": "7" },
-    { "question": "What is 9 + 7 - 5?", "answer": "11" },
-    { "question": "What is 3 x 3 x 3?", "answer": "27" },
-    { "question": "What is 12 / 3 x 2?", "answer": "8" },
-    { "question": "What is 5 squared?", "answer": "25" },
-    { "question": "What is 4 cubed?", "answer": "64" },
-    { "question": "What is 8 + 12?", "answer": "20" },
-    { "question": "What is 5 x 9?", "answer": "45" },
-    { "question": "What is 50 - 17?", "answer": "33" },
-    { "question": "What is 100 / 10?", "answer": "10" },
-    { "question": "What is the cube root of 27?", "answer": "3" }
+    {
+      "question": "What is 2 + 2?",
+      "answer": "4"
+    },
+    {
+      "question": "What is 3 x 5?",
+      "answer": "15"
+    },
+    {
+      "question": "What is 10 - 6?",
+      "answer": "4"
+    },
+    {
+      "question": "What is 24 / 6?",
+      "answer": "4"
+    },
+    {
+      "question": "What is the square root of 49?",
+      "answer": "7"
+    },
+    {
+      "question": "What is 9 + 7 - 5?",
+      "answer": "11"
+    },
+    {
+      "question": "What is 3 x 3 x 3?",
+      "answer": "27"
+    },
+    {
+      "question": "What is 12 / 3 x 2?",
+      "answer": "8"
+    },
+    {
+      "question": "What is 5 squared?",
+      "answer": "25"
+    },
+    {
+      "question": "What is 4 cubed?",
+      "answer": "64"
+    },
+    {
+      "question": "What is 8 + 12?",
+      "answer": "20"
+    },
+    {
+      "question": "What is 5 x 9?",
+      "answer": "45"
+    },
+    {
+      "question": "What is 50 - 17?",
+      "answer": "33"
+    },
+    {
+      "question": "What is 100 / 10?",
+      "answer": "10"
+    },
+    {
+      "question": "What is the cube root of 27?",
+      "answer": "3"
+    }
   ]
 }
