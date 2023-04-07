@@ -66,11 +66,28 @@ Guides:
 `./gradlew build`
 
 # Run Locally
-To pick up the AWS credentials from the **system environment variables**, in a terminal, run:  
+1. Ensure that you have set the AWS credentials environment variables in the terminal in which you're going to run:
+```bash
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+```
+2. To pick up the AWS credentials from the **system environment variables**, in a terminal, run:  
 `java -jar ./build/libs/flashapi-0.0.1-SNAPSHOT.jar`  
 
-Go to the endpoint in a browser:  
+3. Go to the endpoint in a browser:  
 `http://localhost:9090/categories`
+
+4. Troubleshooting this message:
+```bash
+Identify and stop the process that's listening on port 9090 or configure this application to listen on another port.
+```
+
+Run `ss` to find the process listening on the port in question (e.g. `9090`):
+```bash
+ss -tunap | grep :9090
+tcp   LISTEN     0      100                          *:9090                       *:*     users:(("java",pid=202200,fd=11)) 
+```
+then use `kill -9 <pid>` on that pid.
 
 # Endpoints
 `/categories` - list the categories available in the DynamoDB database.
