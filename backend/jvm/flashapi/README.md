@@ -66,7 +66,7 @@ Guides:
 `./gradlew build`
 
 # Run Locally
-To pick up the AWS credentials from the system environment variables, in a terminal, run:  
+To pick up the AWS credentials from the **system environment variables**, in a terminal, run:  
 `java -jar ./build/libs/flashapi-0.0.1-SNAPSHOT.jar`  
 
 Go to the endpoint in a browser:  
