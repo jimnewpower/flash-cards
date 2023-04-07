@@ -50,7 +50,7 @@ public class CategoryController {
     }
 
     private Table getDynamoDBTable() {
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(settings.getAccess(), settings.getSecret());
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(settings.accessKey(), settings.secretKey());
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                 .withRegion(Regions.US_EAST_1)

@@ -2,33 +2,28 @@ package com.primalimited.flashapi;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "aws")
+@ConfigurationProperties(prefix = "cloud.aws.credentials")
 public class Settings {
-    private String table;
-    private String access;
-    private String secret;
+    private String accessKey;
+    private String secretKey;
 
     public String getTable() {
-        return table;
+        return "FlashCards";
     }
 
-    public void setTable(String table) {
-        this.table = table;
+    public String accessKey() {
+        return accessKey;
     }
 
-    public String getAccess() {
-        return access;
+    public void setAccessKey(String accessKey) {
+        this.accessKey = accessKey;
     }
 
-    public void setAccess(String access) {
-        this.access = access;
+    public String secretKey() {
+        return secretKey;
     }
 
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
     }
 }
