@@ -103,5 +103,7 @@ Run the docker image as a container:
 `docker run -p 9090:9090 jimnewpower/flashapi`
 
 Or, to set **environment variables** (e.g. AWS credentials) in the Docker container:  
-`docker run --env-file ./docker.env -p 9090:9090 jimnewpower/flashapi`
+`docker run --env-file ./docker.env -p 9090:9090 jimnewpower/flashapi`  
+In this case, you would add definitions for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to 
+a local file named `docker.env`.
 
