@@ -28,71 +28,32 @@ import java.util.Map;
 public class CategoryController {
 
     private final Settings settings;
+    private final DynamoTable dynamoTable;
 
-    public CategoryController(Settings settings) {
+    public CategoryController(Settings settings, DynamoTable dynamoTable) {
         this.settings = settings;
+        this.dynamoTable = dynamoTable;
     }
 
     @CrossOrigin
     @GetMapping("/categories")
     public List<String> getCategories() {
-
         String partitionKeyName = "Category";
-        String partitionKeyValue = "Math";
+        List<String> categories = dynamoTable.getAllPartitionKeys(settings.getTable(), partitionKeyName);
 
-        AmazonDynamoDB dynamoDBClient = getClient();
-        Table table = getDynamoDBTable(dynamoDBClient);
-        return getAllPartitionKeys(dynamoDBClient, settings.getTable(), partitionKeyName);
+        Table table = dynamoTable.getDynamoDBTable();
 
-//        QuerySpec querySpec = new QuerySpec()
-//                .withKeyConditionExpression(partitionKeyName + " = :partitionKeyVal")
-//                .withValueMap(new ValueMap()
-//                        .withString(":partitionKeyVal", partitionKeyValue));
-//
-//        List<String> result = new ArrayList<>();
-//        result.add(table.getTableName());
-//
-//        ItemCollection<QueryOutcome> outcome = table.query(querySpec);
-//        outcome.forEach(item -> result.add(item.toJSONPretty()));
-//
-//        return result;
+        List<String> result = new ArrayList<>();
+        for (String category: categories) {
+            QuerySpec querySpec = new QuerySpec()
+                    .withKeyConditionExpression(partitionKeyName + " = :partitionKeyVal")
+                    .withValueMap(new ValueMap()
+                            .withString(":partitionKeyVal", category));
+
+            ItemCollection<QueryOutcome> outcome = table.query(querySpec);
+            outcome.forEach(item -> result.add(item.toJSONPretty()));
+        }
+
+        return result;
     }
-
-    private AmazonDynamoDB getClient() {
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(settings.accessKey(), settings.secretKey());
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-                .withRegion(Regions.US_EAST_1)
-                .build();
-        return client;
-    }
-
-    private Table getDynamoDBTable(AmazonDynamoDB client) {
-        return new DynamoDB(client).getTable(settings.getTable());
-    }
-
-    public static List<String> getAllPartitionKeys(AmazonDynamoDB dynamoDbClient, String tableName, String partitionKeyAttributeName) {
-        List<String> partitionKeys = new ArrayList<>();
-
-        ScanRequest scanRequest = new ScanRequest(tableName);
-        scanRequest.setProjectionExpression(partitionKeyAttributeName);
-
-        ScanResult scanResult;
-        do {
-            scanResult = dynamoDbClient.scan(scanRequest);
-            for (Map<String, AttributeValue> item : scanResult.getItems()) {
-                AttributeValue partitionKeyAttributeValue = item.get(partitionKeyAttributeName);
-                if (partitionKeyAttributeValue != null) {
-                    partitionKeys.add(partitionKeyAttributeValue.getS());
-                }
-            }
-
-            if (scanResult.getLastEvaluatedKey() != null)
-                scanRequest.setProjectionExpression(scanResult.getLastEvaluatedKey().toString());
-//            scanRequest = scanRequest.toBuilder().exclusiveStartKey(scanResponse.lastEvaluatedKey()).build();
-        } while (scanResult.getLastEvaluatedKey() != null && !scanResult.getLastEvaluatedKey().isEmpty());
-
-        return partitionKeys;
-    }
-
 }
