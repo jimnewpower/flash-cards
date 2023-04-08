@@ -107,3 +107,4 @@ Or, to set **environment variables** (e.g. AWS credentials) in the Docker contai
 In this case, you would add definitions for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to 
 a local file named `docker.env`.
 
+To build and run, use the local shell script `build_run.sh`.
