@@ -7,20 +7,27 @@ import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Component
 @RestController
+@RequestMapping("/api/v1")
 public class CategoryController {
     private static final String PARTITION_KEY_NAME = "Category";
     private static final String SORT_KEY_NAME = "Title";
+
+    Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     private final Settings settings;
     private final DynamoTable dynamoTable;
@@ -32,16 +39,23 @@ public class CategoryController {
 
     @CrossOrigin
     @GetMapping("/categories")
-    public Set<String> getCategories() {
-        return dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
+    public String getCategories() {
+        logger.info("getCategories()");
+
+        Set<String> categoriesSet = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
+        Categories categories = new Categories(categoriesSet);
+        Gson gson = new Gson();
+        return gson.toJson(categories);
     }
 
     @CrossOrigin
     @GetMapping("/titles")
     public String getTitles() {
-        Set<String> categories = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
-        List<CategoryTitle> categoryTitles = new ArrayList<>();
-        for (String category: categories) {
+        logger.info("getTitles()");
+
+        Set<String> categoriesSet = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
+        Set<CategoryTitle> categoryTitles = new HashSet<>();
+        for (String category: categoriesSet) {
             Set<String> sortKeys = dynamoTable
                     .scanForUniqueSortKeys(settings.getTable(), PARTITION_KEY_NAME, category, SORT_KEY_NAME);
             for (String sortKey: sortKeys) {
@@ -50,16 +64,21 @@ public class CategoryController {
             }
         }
 
+        Titles titles = new Titles(categoryTitles);
         Gson gson = new Gson();
-        return gson.toJson(categoryTitles);
+        return gson.toJson(titles);
     }
 
     @CrossOrigin
     @GetMapping("/flashcards")
     public String getFlashcards() {
+        logger.info("getFlashcards()");
+
         AttributeValue attributeValue = dynamoTable.getFlashcardsByPartitionAndSortKey("Math", "Basic Arithmetic");
 
         List<FlashCard> flashCards = new ArrayList<>();
+
+        Gson gson = new Gson();
 
         attributeValue.getL().forEach(value -> {
             final FlashCard flashCard = new FlashCard("", "");
@@ -75,13 +94,14 @@ public class CategoryController {
                 flashCards.add(flashCard);
         });
 
-        Gson gson = new Gson();
         return gson.toJson(flashCards);
     }
 
     @CrossOrigin
     @GetMapping("/all")
     public List<String> all() {
+        logger.info("all()");
+
         String partitionKeyName = "Category";
         Set<String> categories = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), partitionKeyName);
 
