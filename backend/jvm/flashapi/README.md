@@ -95,3 +95,8 @@ then use `kill -9 <pid>` on that pid.
 # Spring Boot [Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)
 `curl localhost:9090/actuator/health`
 
+# Docker Image
+`docker build -t jimnewpower/flashapi .`
+
+Run the docker container:
+`docker run -p 9090:9090 jimnewpower/flashapi`
