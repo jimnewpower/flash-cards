@@ -115,7 +115,6 @@ function generateIdFromCategoryAndTitle(category, title) {
 function getCategoryFromIdString(id) {
     let start = categoryIdPrefix.length;
     let end = id.indexOf(titleIdPrefix) - 1;
-    console.log('start: ' + start + ' end: ' + end);
 
     let str = id.substring(start, end).replace(/-/g, ' ');
     return capitalizeEachWord(str);
