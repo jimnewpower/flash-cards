@@ -38,17 +38,20 @@ public class CategoryController {
 
     @CrossOrigin
     @GetMapping("/titles")
-    public List<String> getTitles() {
+    public String getTitles() {
         Set<String> categories = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
-        List<String> result = new ArrayList<>();
+        List<CategoryTitle> categoryTitles = new ArrayList<>();
         for (String category: categories) {
             Set<String> sortKeys = dynamoTable
                     .scanForUniqueSortKeys(settings.getTable(), PARTITION_KEY_NAME, category, SORT_KEY_NAME);
-            for (String sortKey: sortKeys)
-                result.add(category + " - " + sortKey);
+            for (String sortKey: sortKeys) {
+                CategoryTitle categoryTitle = new CategoryTitle(category, sortKey);
+                categoryTitles.add(categoryTitle);
+            }
         }
 
-        return result;
+        Gson gson = new Gson();
+        return gson.toJson(categoryTitles);
     }
 
     @CrossOrigin
@@ -67,7 +70,7 @@ public class CategoryController {
                 else if (k.startsWith("answer"))
                     flashCard.setAnswer(v.getS());
             });
-            
+
             if (!flashCard.question().isEmpty() && !flashCard.answer().isEmpty())
                 flashCards.add(flashCard);
         });
