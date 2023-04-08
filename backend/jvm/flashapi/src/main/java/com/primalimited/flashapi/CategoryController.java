@@ -1,19 +1,12 @@
 package com.primalimited.flashapi;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.ItemCollection;
 import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.ScanRequest;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.google.gson.Gson;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 @Component
 @RestController
@@ -37,11 +30,20 @@ public class CategoryController {
 
     @CrossOrigin
     @GetMapping("/categories")
-    public List<String> getCategories() {
+    public Set<String> getCategories() {
         String partitionKeyName = "Category";
-        List<String> categories = dynamoTable.getAllPartitionKeys(settings.getTable(), partitionKeyName);
+        return dynamoTable.scanForUniquePartitionKeys(settings.getTable(), partitionKeyName);
+    }
+
+    @CrossOrigin
+    @GetMapping("/all")
+    public List<String> all() {
+        String partitionKeyName = "Category";
+        Set<String> categories = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), partitionKeyName);
 
         Table table = dynamoTable.getDynamoDBTable();
+
+        Gson gson = new Gson();
 
         List<String> result = new ArrayList<>();
         for (String category: categories) {
@@ -51,7 +53,11 @@ public class CategoryController {
                             .withString(":partitionKeyVal", category));
 
             ItemCollection<QueryOutcome> outcome = table.query(querySpec);
-            outcome.forEach(item -> result.add(item.toJSONPretty()));
+            outcome.forEach(item -> {
+                result.add(gson.toJson(item));
+//                item.attributes().forEach(value -> result.add(gson.toJson(value)));
+//                result.add(item.toJSON());
+            });
         }
 
         return result;
