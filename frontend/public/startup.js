@@ -1,3 +1,10 @@
+const baseUrl = 'http://localhost:9090';
+const apiBaseUrl = '/api/v1';
+
+function buildURL(endpoint) {
+    return baseUrl + apiBaseUrl + endpoint;
+}
+
 function startup() {
     showQuizTypeButtons();
     hideMultipleChoiceElements();
@@ -15,10 +22,30 @@ function startup() {
     document.getElementById("multiple-choice-container").setAttribute("style", "display: none;");
     document.getElementById("flash-card-container").setAttribute("style", "display: none;");
  
-    let url = 'http://localhost:9090/categories'
-//    let url = './metadata.json'
+    let categoriesUrl = buildURL('/categories');
 
-    fetch(url)
+    fetch(categoriesUrl)
+        .then(response => {
+            if (!response.ok) {
+                showErrorHtml(response);
+                return Promise.reject(new Error(response.statusText));
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            fetchTitles();
+        })
+        .catch(error => {
+            showError(error);
+            console.log(error);
+        });
+}
+
+function fetchTitles() {
+    let titlesUrl = buildURL('/titles');
+
+    fetch(titlesUrl)
         .then(response => {
             if (!response.ok) {
                 showErrorHtml(response);
