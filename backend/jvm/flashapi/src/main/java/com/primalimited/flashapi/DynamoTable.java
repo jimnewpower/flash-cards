@@ -16,6 +16,8 @@ import java.util.*;
 
 @Component
 public class DynamoTable {
+    private static final String PARTITION_KEY_NAME = "Category";
+    private static final String SORT_KEY_NAME = "Title";
 
     private final Settings settings;
 
@@ -92,4 +94,45 @@ public class DynamoTable {
         return partitionKeys;
     }
 
+    /**
+     * Scans a DynamoDB table and retrieves a list of all (unique) sort keys.
+     *
+     * @param tableName The name of the DynamoDB table to scan.
+     * @param partitionKeyAttributeName The name of the partition key attribute.
+     * @param partitionKeyAttributeValue The value of the partition key attribute.
+     * @param sortKeyAttributeName The name of the sort key attribute.
+     * @return A list of strings containing the sort keys.
+     */
+    Set<String> scanForUniqueSortKeys(String tableName, String partitionKeyAttributeName, String partitionKeyAttributeValue, String sortKeyAttributeName) {
+        Set<String> sortKeys = new HashSet<>();
+
+        // Create a ScanRequest to retrieve the specified partition key attribute from the table
+        ScanRequest scanRequest = new ScanRequest(tableName);
+        scanRequest.setProjectionExpression(partitionKeyAttributeName + ", " + sortKeyAttributeName);
+        scanRequest.setFilterExpression(partitionKeyAttributeName + " = :partitionKeyAttributeValue");
+        scanRequest.setExpressionAttributeValues(Collections.singletonMap(":partitionKeyAttributeValue", new AttributeValue(partitionKeyAttributeValue)));
+
+        AmazonDynamoDB dynamoDbClient = getClient();
+
+        // Loop through all the pages of the table
+        ScanResult scanResult;
+        do {
+            // Execute the scan request
+            scanResult = dynamoDbClient.scan(scanRequest);
+
+            // Add the partition key attribute value to the list
+            for (Map<String, AttributeValue> item : scanResult.getItems()) {
+                AttributeValue sortKeyAttributeValue = item.get(sortKeyAttributeName);
+                if (sortKeyAttributeValue != null) {
+                    sortKeys.add(sortKeyAttributeValue.getS());
+                }
+            }
+
+            // Set the last evaluated key to the start of the next page of results
+            if (scanResult.getLastEvaluatedKey() != null)
+                scanRequest.setProjectionExpression(scanResult.getLastEvaluatedKey().toString());
+        } while (scanResult.getLastEvaluatedKey() != null && !scanResult.getLastEvaluatedKey().isEmpty());
+
+        return sortKeys;
+    }
 }

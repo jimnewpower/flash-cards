@@ -1,6 +1,5 @@
 package com.primalimited.flashapi;
 
-import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.ItemCollection;
 import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
@@ -19,6 +18,8 @@ import java.util.Set;
 @Component
 @RestController
 public class CategoryController {
+    private static final String PARTITION_KEY_NAME = "Category";
+    private static final String SORT_KEY_NAME = "Title";
 
     private final Settings settings;
     private final DynamoTable dynamoTable;
@@ -31,8 +32,22 @@ public class CategoryController {
     @CrossOrigin
     @GetMapping("/categories")
     public Set<String> getCategories() {
-        String partitionKeyName = "Category";
-        return dynamoTable.scanForUniquePartitionKeys(settings.getTable(), partitionKeyName);
+        return dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
+    }
+
+    @CrossOrigin
+    @GetMapping("/titles")
+    public List<String> getTitles() {
+        Set<String> categories = dynamoTable.scanForUniquePartitionKeys(settings.getTable(), PARTITION_KEY_NAME);
+        List<String> result = new ArrayList<>();
+        for (String category: categories) {
+            Set<String> sortKeys = dynamoTable
+                    .scanForUniqueSortKeys(settings.getTable(), PARTITION_KEY_NAME, category, SORT_KEY_NAME);
+            for (String sortKey: sortKeys)
+                result.add(category + " - " + sortKey);
+        }
+
+        return result;
     }
 
     @CrossOrigin
