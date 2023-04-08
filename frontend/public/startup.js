@@ -1,6 +1,8 @@
 const baseUrl = 'http://localhost:9090';
 const apiBaseUrl = '/api/v1';
 const containerPrefix = 'category-';
+const categoryIdPrefix = 'category-id-';
+const titleIdPrefix = 'title-id-';
 
 function buildURL(endpoint) {
     return baseUrl + apiBaseUrl + endpoint;
@@ -74,16 +76,49 @@ function fetchTitles() {
 
             data.titles.forEach(element => {
                 let category = element.category.toLowerCase().replace(/ /g, '-');
-                let id = containerPrefix + category;
-                console.log('id: ' + id);
-                let container = document.getElementById(id);
+                let parentID = containerPrefix + category;
+                console.log('parentID: ' + parentID);
+                let container = document.getElementById(parentID);
                 console.log(container);
     
-                container.innerHTML += '<li><a href="#">' + element.title + '</a></li>';
+                let id = generateIdFromCategoryAndTitle(element.category, element.title);
+                console.log('id: ' + id);
+
+                console.log('category: ' + getCategoryFromIdString(id));
+                console.log('title: ' + getTitleFromIdString(id));
+
+                container.innerHTML += `<li><a href="#" id="${id}">${element.title}</a></li>`;
+            });
+
+            data.titles.forEach(element => {
+                let id = generateIdFromCategoryAndTitle(element.category, element.title);
+                console.log('id: ' + id);
+                document.getElementById(id).addEventListener('click', function() {
+                    console.log('clicked: ' + id);
+                });
             });
         })
         .catch(error => {
             showError(error);
             console.log(error);
         });
+}
+
+function generateIdFromCategoryAndTitle(category, title) {
+    return categoryIdPrefix 
+        + category.toLowerCase().replace(/ /g, '-') 
+        + '-' 
+        + titleIdPrefix
+        + title.toLowerCase().replace(/ /g, '-');
+}
+
+function getCategoryFromIdString(id) {
+    let start = categoryIdPrefix.length;
+    let end = id.indexOf(titleIdPrefix) - 1;
+    console.log('start: ' + start + ' end: ' + end);
+    return id.substring(start, end);
+}
+
+function getTitleFromIdString(id) {
+    return id.substring(id.indexOf(titleIdPrefix) + titleIdPrefix.length);
 }
