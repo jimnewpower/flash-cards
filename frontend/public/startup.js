@@ -94,7 +94,7 @@ function fetchTitles() {
                 let id = generateIdFromCategoryAndTitle(element.category, element.title);
                 console.log('id: ' + id);
                 document.getElementById(id).addEventListener('click', function() {
-                    console.log('clicked: ' + id);
+                    console.log('clicked: Category: ' + getCategoryFromIdString(id) + ' Title: ' + getTitleFromIdString(id));
                 });
             });
         })
@@ -116,9 +116,23 @@ function getCategoryFromIdString(id) {
     let start = categoryIdPrefix.length;
     let end = id.indexOf(titleIdPrefix) - 1;
     console.log('start: ' + start + ' end: ' + end);
-    return id.substring(start, end);
+
+    let str = id.substring(start, end).replace(/-/g, ' ');
+    return capitalizeEachWord(str);
 }
 
 function getTitleFromIdString(id) {
-    return id.substring(id.indexOf(titleIdPrefix) + titleIdPrefix.length);
+    let str = id.substring(id.indexOf(titleIdPrefix) + titleIdPrefix.length).replace(/-/g, ' ');
+
+    return capitalizeEachWord(str);
+}
+
+function capitalizeEachWord(str) {
+    const words = str.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+
+    return words.join(" ");
 }
