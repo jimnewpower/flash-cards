@@ -7,9 +7,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Table;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.ScanRequest;
-import com.amazonaws.services.dynamodbv2.model.ScanResult;
+import com.amazonaws.services.dynamodbv2.model.*;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -135,4 +133,28 @@ public class DynamoTable {
 
         return sortKeys;
     }
+
+    public AttributeValue getFlashcardsByPartitionAndSortKey(String partitionKeyValue, String sortKeyValue) {
+        // Create a QueryRequest with the partition key-value pair and sort key-value pair
+        QueryRequest queryRequest = new QueryRequest();
+        queryRequest.setTableName(settings.getTable());
+        queryRequest.setKeyConditionExpression(PARTITION_KEY_NAME + " = :pk AND " + SORT_KEY_NAME + " = :sk");
+        queryRequest.setExpressionAttributeValues(Map.of(
+                ":pk", new AttributeValue(partitionKeyValue),
+                ":sk", new AttributeValue(sortKeyValue)
+        ));
+        queryRequest.setProjectionExpression("flashcards");
+
+        // Execute the query request
+        QueryResult queryResult = getClient().query(queryRequest);
+
+        // Check if the response contains an item with the flashcards attribute
+        if (!queryResult.getItems().isEmpty()) {
+            Map<String, AttributeValue> item = queryResult.getItems().get(0);
+            return item.get("flashcards");
+        } else {
+            return null;
+        }
+    }
+
 }

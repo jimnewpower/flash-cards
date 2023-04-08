@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.google.gson.Gson;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -48,6 +49,31 @@ public class CategoryController {
         }
 
         return result;
+    }
+
+    @CrossOrigin
+    @GetMapping("/flashcards")
+    public String getFlashcards() {
+        AttributeValue attributeValue = dynamoTable.getFlashcardsByPartitionAndSortKey("Math", "Basic Arithmetic");
+
+        List<FlashCard> flashCards = new ArrayList<>();
+
+        attributeValue.getL().forEach(value -> {
+            final FlashCard flashCard = new FlashCard("", "");
+
+            value.getM().forEach((k, v) -> {
+                if (k.startsWith("question"))
+                    flashCard.setQuestion(v.getS());
+                else if (k.startsWith("answer"))
+                    flashCard.setAnswer(v.getS());
+            });
+            
+            if (!flashCard.question().isEmpty() && !flashCard.answer().isEmpty())
+                flashCards.add(flashCard);
+        });
+
+        Gson gson = new Gson();
+        return gson.toJson(flashCards);
     }
 
     @CrossOrigin
