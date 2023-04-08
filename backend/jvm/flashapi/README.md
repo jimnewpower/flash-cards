@@ -96,7 +96,12 @@ then use `kill -9 <pid>` on that pid.
 `curl localhost:9090/actuator/health`
 
 # Docker Image
+Build the docker image:  
 `docker build -t jimnewpower/flashapi .`
 
-Run the docker container:
+Run the docker image as a container:  
 `docker run -p 9090:9090 jimnewpower/flashapi`
+
+Or, to set **environment variables** (e.g. AWS credentials) in the Docker container:  
+`docker run --env-file ./docker.env -p 9090:9090 jimnewpower/flashapi`
+
