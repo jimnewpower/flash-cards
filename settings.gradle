@@ -9,4 +9,4 @@
  */
 
 rootProject.name = 'flash-cards'
-include('backend/jvm/flashapi')
+include('api')
