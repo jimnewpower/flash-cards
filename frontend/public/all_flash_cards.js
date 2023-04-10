@@ -1,6 +1,7 @@
 let allFlashCards = [];
 
 function showAllFlashCards(filename) {
+    hideCategoriesAndTitles();
     hideQuizTypeButtons();
     showAllFlashCardElements();
     showNavigationElements();

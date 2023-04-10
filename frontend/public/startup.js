@@ -9,6 +9,7 @@ function buildURL(endpoint) {
 }
 
 function startup() {
+    showCategoriesAndTitles();
     showQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();

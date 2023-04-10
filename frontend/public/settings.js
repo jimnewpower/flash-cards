@@ -1,4 +1,5 @@
 function showSettings() {
+    hideCategoriesAndTitles();
     hideQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();

@@ -1,3 +1,8 @@
+const categoriesAndTitles = [
+    "categories",
+    "titles"
+];
+
 const quizTypeButtons = [
     'multiple-choice-button',
     'flash-card-button',
@@ -49,6 +54,14 @@ const navigationElements = [
 const styleAttribute = "style";
 const displayContentValue = "display: content";
 const displayNoneValue = "display: none";
+
+function showCategoriesAndTitles() {
+    applyAttributeToElements(categoriesAndTitles, styleAttribute, displayContentValue);
+}
+
+function hideCategoriesAndTitles() {
+    applyAttributeToElements(categoriesAndTitles, styleAttribute, displayNoneValue);
+}
 
 function showSettingsElements() {
     applyAttributeToElements(settingsElements, styleAttribute, displayContentValue);
