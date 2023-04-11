@@ -4,6 +4,11 @@ const containerPrefix = 'category-';
 const categoryIdPrefix = 'category-id-';
 const titleIdPrefix = 'title-id-';
 
+// Preserve the category names read from the database, and map them to the element id's
+const categoryNameMap = new Map();
+// Preserve the title names read from the database, and map them to the element id's
+const titleNameMap = new Map();
+
 function buildURL(endpoint) {
     return baseUrl + apiBaseUrl + endpoint;
 }
@@ -82,6 +87,9 @@ function fetchTitles() {
                 // console.log('category: ' + getCategoryFromIdString(id));
                 // console.log('title: ' + getTitleFromIdString(id));
 
+                categoryNameMap.set(id, element.category);
+                titleNameMap.set(id, element.title);
+
                 container.innerHTML += `<li><a href="#" id="${id}">${element.title}</a></li>`;
             });
 
@@ -118,17 +126,11 @@ function generateIdFromCategoryAndTitle(category, title) {
 }
 
 function getCategoryFromIdString(id) {
-    let start = categoryIdPrefix.length;
-    let end = id.indexOf(titleIdPrefix) - 1;
-
-    let str = id.substring(start, end).replace(/-/g, ' ');
-    return capitalizeEachWord(str);
+    return categoryNameMap.get(id);
 }
 
 function getTitleFromIdString(id) {
-    let str = id.substring(id.indexOf(titleIdPrefix) + titleIdPrefix.length).replace(/-/g, ' ');
-
-    return capitalizeEachWord(str);
+    return titleNameMap.get(id);
 }
 
 function capitalizeEachWord(str) {
