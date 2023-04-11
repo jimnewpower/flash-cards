@@ -1,4 +1,6 @@
 docker.env
+# This is dynamic, copied in from the build scripts
+Dockerfile
 
 # Maven artifacts
 target/
