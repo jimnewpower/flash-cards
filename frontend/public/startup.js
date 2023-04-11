@@ -109,6 +109,7 @@ function fetchFromCategoryAndTitle(category, title) {
     let url = buildURL('/flashcards?category=' + encodeURIComponent(category) + '&title=' + encodeURIComponent(title));
     console.log('url:' + url);
     startFlashCardQuiz(url);
+    document.getElementById("topic").innerHTML = `${category} - ${title}`;
 }
 
 function generateIdFromCategoryAndTitle(category, title) {
