@@ -9,6 +9,9 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +23,7 @@ import java.util.Set;
 @Component
 @RestController
 @RequestMapping("/api/v1")
-public class CategoryController {
+public class CategoryController implements ErrorController {
     private static final String PARTITION_KEY_NAME = "Category";
     private static final String SORT_KEY_NAME = "Title";
 
@@ -32,6 +35,11 @@ public class CategoryController {
     public CategoryController(Settings settings, DynamoTable dynamoTable) {
         this.settings = settings;
         this.dynamoTable = dynamoTable;
+    }
+
+    @RequestMapping("/error")
+    public String error() {
+        return "Error handling request";
     }
 
     @CrossOrigin
@@ -68,11 +76,20 @@ public class CategoryController {
 
     @CrossOrigin
     @GetMapping("/flashcards")
-    public String getFlashcards(@RequestParam String category, @RequestParam String title) {
-        logger.info("getFlashcards()");
+    public String getFlashcards(
+            @RequestParam(name = "category", required = false) String category,
+            @RequestParam(name = "title", required = false) String title
+    ) {
+        logger.info("getFlashcards(" + category + ", " + title + ")");
 
-//        AttributeValue attributeValue = dynamoTable.getFlashcardsByPartitionAndSortKey("Math", "Basic Arithmetic");
+        if (category == null || category.isEmpty())
+            throw new IllegalArgumentException("Category and title parameters are required (e.g. /api/v1/flashcards?category=Math&title=Algebra)");
+        if (title == null || title.isEmpty())
+            throw new IllegalArgumentException("Category and title parameters are required (e.g. /api/v1/flashcards?category=Math&title=Algebra)");
+
         AttributeValue attributeValue = dynamoTable.getFlashcardsByPartitionAndSortKey(category, title);
+        if (attributeValue == null)
+            throw new IllegalArgumentException("No flashcards found for category " + category + " and title " + title);
 
         List<FlashCard> flashCards = new ArrayList<>();
 
@@ -124,4 +141,10 @@ public class CategoryController {
 
         return result;
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 }
