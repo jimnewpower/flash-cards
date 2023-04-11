@@ -38,13 +38,11 @@ function startup() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
-
             let html = '';
             data.categories.forEach(element => {
                 let category = element.toLowerCase().replace(/ /g, '-');
                 let id = containerPrefix + category;
-                console.log('id: ' + id);
+                // console.log('id: ' + id);
                 html += `<div class="container" id="${id}">${element}</div>`;
             });
             html += '';
@@ -70,31 +68,30 @@ function fetchTitles() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            // console.log(data);
 
             data.titles.forEach(element => {
                 let category = element.category.toLowerCase().replace(/ /g, '-');
                 let parentID = containerPrefix + category;
-                console.log('parentID: ' + parentID);
+                // console.log('parentID: ' + parentID);
                 let container = document.getElementById(parentID);
-                console.log(container);
+                // console.log(container);
     
                 let id = generateIdFromCategoryAndTitle(element.category, element.title);
-                console.log('id: ' + id);
-
-                console.log('category: ' + getCategoryFromIdString(id));
-                console.log('title: ' + getTitleFromIdString(id));
+                // console.log('id: ' + id);
+                // console.log('category: ' + getCategoryFromIdString(id));
+                // console.log('title: ' + getTitleFromIdString(id));
 
                 container.innerHTML += `<li><a href="#" id="${id}">${element.title}</a></li>`;
             });
 
             data.titles.forEach(element => {
                 let id = generateIdFromCategoryAndTitle(element.category, element.title);
-                console.log('id: ' + id);
+                // console.log('id: ' + id);
                 document.getElementById(id).addEventListener('click', function() {
                     let category = getCategoryFromIdString(id);
                     let title = getTitleFromIdString(id);
-                    console.log('clicked: Category: ' + category + ' Title: ' + title);
+                    // console.log('clicked: Category: ' + category + ' Title: ' + title);
                     fetchFromCategoryAndTitle(category, title);
                 });
             });
@@ -107,7 +104,7 @@ function fetchTitles() {
 
 function fetchFromCategoryAndTitle(category, title) {
     let url = buildURL('/flashcards?category=' + encodeURIComponent(category) + '&title=' + encodeURIComponent(title));
-    console.log('url:' + url);
+    // console.log('url:' + url);
     startFlashCardQuiz(url);
     document.getElementById("topic").innerHTML = `${category} - ${title}`;
 }

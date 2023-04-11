@@ -17,7 +17,7 @@ function fetchFlashCardData(url) {
         return response.json();
     })
     .then(data => {
-        console.log('data:' + data);
+        // console.log('data:' + data);
         // Set up the initial flash card
         if (data.topic != null) {
             document.getElementById("topic").innerHTML = data.topic;
