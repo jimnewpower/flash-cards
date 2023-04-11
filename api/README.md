@@ -108,3 +108,29 @@ In this case, you would add definitions for `AWS_ACCESS_KEY_ID` and `AWS_SECRET_
 a local file named `docker.env`.
 
 To build and run, use the local shell script `build_run.sh`.
+
+# Deploy to AWS ECR
+1. Create an ECR repository in the AWS console.
+2. Retrieve an authentication token and authenticate your Docker client to your registry.
+```bash
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/xyxyxyxy
+```
+3. Build your Docker image using the following command.
+```bash
+docker build -t jimnewpower-flashapi .
+```
+4. After the build completes, tag your image so you can push the image to this repository.
+```bash
+docker tag jimnewpower-flashapi:latest public.ecr.aws/xyxyxyxy/jimnewpower-flashapi:latest
+```
+5. Run the following command to push this image to your newly created AWS repository.
+```bash
+docker push public.ecr.aws/xyxyxyxy/jimnewpower-flashapi:latest
+```
+
+Create a Cluster in AWS ECS:
+- create cluster (Fargate)
+- create container from ECR image
+  - add environment variables from secure s3 bucket (e.g. AWS login credentials)
+- create task definition
+- deploy task to cluster
