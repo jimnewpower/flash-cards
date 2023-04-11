@@ -134,3 +134,6 @@ Create a Cluster in AWS ECS:
   - add environment variables from secure s3 bucket (e.g. AWS login credentials)
 - create task definition
 - deploy task to cluster
+
+# Deploy Docker Image to AWS Lambda
+[Tutorial](https://medium.com/@MustehssunI/deploying-java-application-on-aws-lambda-using-docker-a95f6fc159da)

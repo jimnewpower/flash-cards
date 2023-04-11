@@ -5,7 +5,6 @@ plugins {
 }
 apply plugin: 'io.spring.dependency-management'
 
-
 group = 'com.primalimited'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -32,6 +31,14 @@ dependencies {
     // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb
     implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.443'
 
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-core
+    implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-events
+    implementation 'com.amazonaws:aws-lambda-java-events:3.10.0'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-log4j2
+    implementation 'com.amazonaws:aws-lambda-java-log4j2:1.2.1'
 }
 
 tasks.named('test') {

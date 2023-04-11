@@ -62,34 +62,11 @@ public class DynamoTable {
      * @return A list of strings containing the partition keys.
      */
     Set<String> scanForUniquePartitionKeys(String tableName, String partitionKeyAttributeName) {
-        Set<String> partitionKeys = new HashSet<>();
-
         // Create a ScanRequest to retrieve the specified partition key attribute from the table
         ScanRequest scanRequest = new ScanRequest(tableName);
         scanRequest.setProjectionExpression(partitionKeyAttributeName);
 
-        AmazonDynamoDB dynamoDbClient = getClient();
-
-        // Loop through all the pages of the table
-        ScanResult scanResult;
-        do {
-            // Execute the scan request
-            scanResult = dynamoDbClient.scan(scanRequest);
-
-            // Add the partition key attribute value to the list
-            for (Map<String, AttributeValue> item : scanResult.getItems()) {
-                AttributeValue partitionKeyAttributeValue = item.get(partitionKeyAttributeName);
-                if (partitionKeyAttributeValue != null) {
-                    partitionKeys.add(partitionKeyAttributeValue.getS());
-                }
-            }
-
-            // Set the last evaluated key to the start of the next page of results
-            if (scanResult.getLastEvaluatedKey() != null)
-                scanRequest.setProjectionExpression(scanResult.getLastEvaluatedKey().toString());
-        } while (scanResult.getLastEvaluatedKey() != null && !scanResult.getLastEvaluatedKey().isEmpty());
-
-        return partitionKeys;
+        return scan(scanRequest, partitionKeyAttributeName);
     }
 
     /**
@@ -102,15 +79,19 @@ public class DynamoTable {
      * @return A list of strings containing the sort keys.
      */
     Set<String> scanForUniqueSortKeys(String tableName, String partitionKeyAttributeName, String partitionKeyAttributeValue, String sortKeyAttributeName) {
-        Set<String> sortKeys = new HashSet<>();
-
         // Create a ScanRequest to retrieve the specified partition key attribute from the table
         ScanRequest scanRequest = new ScanRequest(tableName);
         scanRequest.setProjectionExpression(partitionKeyAttributeName + ", " + sortKeyAttributeName);
         scanRequest.setFilterExpression(partitionKeyAttributeName + " = :partitionKeyAttributeValue");
         scanRequest.setExpressionAttributeValues(Collections.singletonMap(":partitionKeyAttributeValue", new AttributeValue(partitionKeyAttributeValue)));
 
+        return scan(scanRequest, sortKeyAttributeName);
+    }
+
+    private Set<String> scan(ScanRequest scanRequest, String key) {
         AmazonDynamoDB dynamoDbClient = getClient();
+
+        Set<String> sortKeys = new HashSet<>();
 
         // Loop through all the pages of the table
         ScanResult scanResult;
@@ -120,7 +101,7 @@ public class DynamoTable {
 
             // Add the partition key attribute value to the list
             for (Map<String, AttributeValue> item : scanResult.getItems()) {
-                AttributeValue sortKeyAttributeValue = item.get(sortKeyAttributeName);
+                AttributeValue sortKeyAttributeValue = item.get(key);
                 if (sortKeyAttributeValue != null) {
                     sortKeys.add(sortKeyAttributeValue.getS());
                 }

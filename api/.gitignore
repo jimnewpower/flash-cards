@@ -1,5 +1,8 @@
 docker.env
 
+# Maven artifacts
+target/
+
 HELP.md
 .gradle
 build/
