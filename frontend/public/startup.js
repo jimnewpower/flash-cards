@@ -10,7 +10,7 @@ function buildURL(endpoint) {
 
 function startup() {
     showCategoriesAndTitles();
-    showQuizTypeButtons();
+    hideQuizTypeButtons();
     hideMultipleChoiceElements();
     hideFlashCardElements();
     hideAllFlashCardElements();
@@ -19,14 +19,11 @@ function startup() {
     showNavigationElements();
     document.getElementById("home-button").disabled = true;
 
-    document.getElementById("topic").innerHTML = "Select Quiz Type";
+    document.getElementById("topic").innerHTML = "Flash Cards";
 
     document.getElementById("categories").setAttribute("style", "display: content;");
     document.getElementById("titles").setAttribute("style", "display: content;");
 
-    document.getElementById("multiple-choice-button").setAttribute("style", "display: content;");
-    document.getElementById("flash-card-button").setAttribute("style", "display: content;");
-    document.getElementById("all-flash-cards-button").setAttribute("style", "display: content;");
     document.getElementById("multiple-choice-container").setAttribute("style", "display: none;");
     document.getElementById("flash-card-container").setAttribute("style", "display: none;");
  
