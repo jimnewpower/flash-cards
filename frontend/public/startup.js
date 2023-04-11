@@ -95,7 +95,10 @@ function fetchTitles() {
                 let id = generateIdFromCategoryAndTitle(element.category, element.title);
                 console.log('id: ' + id);
                 document.getElementById(id).addEventListener('click', function() {
-                    console.log('clicked: Category: ' + getCategoryFromIdString(id) + ' Title: ' + getTitleFromIdString(id));
+                    let category = getCategoryFromIdString(id);
+                    let title = getTitleFromIdString(id);
+                    console.log('clicked: Category: ' + category + ' Title: ' + title);
+                    fetchFromCategoryAndTitle(category, title);
                 });
             });
         })
@@ -103,6 +106,12 @@ function fetchTitles() {
             showError(error);
             console.log(error);
         });
+}
+
+function fetchFromCategoryAndTitle(category, title) {
+    let url = buildURL('/flashcards?category=' + encodeURIComponent(category) + '&title=' + encodeURIComponent(title));
+    console.log('url:' + url);
+    startFlashCardQuiz(url);
 }
 
 function generateIdFromCategoryAndTitle(category, title) {

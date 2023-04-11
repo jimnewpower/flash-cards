@@ -2,13 +2,13 @@ let flashCards = [];
 let usedFlashCardIndexes = [];
 let currentFlashCard = 0;
 
-function startFlashCardQuiz(filename) {
+function startFlashCardQuiz(url) {
     initializeFlashCardVariables();
-    fetchFlashCardData(filename);
+    fetchFlashCardData(url);
 }
 
-function fetchFlashCardData(filename) {
-    fetch(filename)
+function fetchFlashCardData(url) {
+    fetch(url)
     .then(response => {
         if (!response.ok) {
             showErrorHtml(response);
@@ -17,6 +17,7 @@ function fetchFlashCardData(filename) {
         return response.json();
     })
     .then(data => {
+        console.log('data:' + data);
         // Set up the initial flash card
         if (data.topic != null) {
             document.getElementById("topic").innerHTML = data.topic;
@@ -25,7 +26,7 @@ function fetchFlashCardData(filename) {
             highlightLanguage = data.language;
             console.log('highlightLanguage: ' + highlightLanguage);
         }
-        flashCards = data.flashcards;
+        flashCards = data;
         showRandomFlashCard();
     })
     .catch(error => {
