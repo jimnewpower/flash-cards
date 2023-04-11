@@ -34,6 +34,8 @@ function startup() {
  
     let categoriesUrl = buildURL('/categories');
 
+    document.getElementById("categories").innerHTML = "Loading...";
+
     fetch(categoriesUrl)
         .then(response => {
             if (!response.ok) {
