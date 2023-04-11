@@ -82,10 +82,15 @@ public class CategoryController implements ErrorController {
     ) {
         logger.info("getFlashcards(" + category + ", " + title + ")");
 
-        if (category == null || category.isEmpty())
+        if (category == null || category.isBlank())
             throw new IllegalArgumentException("Category and title parameters are required (e.g. /api/v1/flashcards?category=Math&title=Algebra)");
-        if (title == null || title.isEmpty())
+        if (title == null || title.isBlank())
             throw new IllegalArgumentException("Category and title parameters are required (e.g. /api/v1/flashcards?category=Math&title=Algebra)");
+
+        category = sanitizeParameter(category);
+        title = sanitizeParameter(title);
+
+        logger.info("sanitized(" + category + ", " + title + ")");
 
         AttributeValue attributeValue = dynamoTable.getFlashcardsByPartitionAndSortKey(category, title);
         if (attributeValue == null)
@@ -147,4 +152,7 @@ public class CategoryController implements ErrorController {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
+    private String sanitizeParameter(String parameter) {
+        return org.apache.commons.text.StringEscapeUtils.escapeJava(parameter);
+    }
 }
